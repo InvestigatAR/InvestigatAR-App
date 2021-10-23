@@ -14,16 +14,16 @@ const items = [ {id: 1, name: 'chair'}, {id: 2, name: 'table'}, {id: 3, name: 'b
 {id: 1, name: 'chair'}, {id: 1, name: 'chair'}, ];
 const HomeScreen = (props: any) => {
   useEffect(() => {
-    console.log("Hello", props.userSession.current.user.username);
+    // console.log("Hello", props.userSession.current.user.username);
   }, []);
-  const name = props.userSession ? props.userSession.current.user.name : "no name";
+  const name = props.userSession.current ? props.userSession.current.user.name : 'none';
 
   const renderHeader = (props: any) => {
     return (
       <View
         style={{
           width: "100%",
-          height: 200,
+          height: 175,
           // position: 'absolute'
         }}
       >
@@ -44,13 +44,13 @@ const HomeScreen = (props: any) => {
             marginTop: 70
           }}
           >
-            <Text style={{fontSize: 50, color: '#000'}}>Welcome Home</Text>
-            <Text style={{
+            <Text style={{fontSize: 50, color: '#000', marginTop: 10}}>Welcome Home</Text>
+            {/* <Text style={{
               marginTop: 10,
               fontSize: 35,
               fontStyle: 'italic'
               // fontWeight: 'bold'
-            }}> {name} </Text>
+            }}> {name} </Text> */}
           </View>
         </ImageBackground>
 
@@ -63,8 +63,10 @@ const HomeScreen = (props: any) => {
     <View style={{flex: 1, alignItems: 'center'}}>
       {renderHeader(props)}
       <Text style={
-        {marginVertical:10,
-          fontSize: 20
+        {marginTop:20,
+          fontSize: 25,
+          fontStyle: 'italic',
+          textDecorationLine: 'underline',
         }
       }
       >History</Text>
