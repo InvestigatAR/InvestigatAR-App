@@ -1,12 +1,23 @@
 import React, {useEffect, useState} from 'react';
 import {connect} from 'react-redux';
 import {mapDispatchToProps, mapStateToProps} from '../LaunchScreen';
-import { Button, SafeAreaView, ScrollView, Text, View } from "react-native";
+import {
+  Button, KeyboardAvoidingView,
+  SafeAreaView,
+  ScrollView,
+  Text,
+  TextInput,
+  View
+} from "react-native";
 import {getProduct} from '../../service/api';
+import Input from "../Shared/input";
+import SignupButton from "../Shared/signupbutton";
 
 const ReviewScreen = (props: any) => {
   const [reviews, setReviews] = useState<Array<any>>([]);
   const [product, setProduct] = useState<any>(undefined);
+
+  const [reviewMessage, setReviewMessage] = useState<string>('');
 
   useEffect(() => {
     const productId = props.productScan.current;
@@ -41,7 +52,9 @@ const ReviewScreen = (props: any) => {
       console.log('review', review);
 
       return (
-        <View key={review.id} style={{margin: 10, padding: 10, backgroundColor: 'grey'}}>
+        <View
+          key={review.id}
+          style={{margin: 10, padding: 10, backgroundColor: 'grey'}}>
           <Text>User's Name: {review.user.name}</Text>
           <Text>Rating Given: {review.rating}</Text>
           <Text>Review Message: {review.description}</Text>
@@ -54,8 +67,8 @@ const ReviewScreen = (props: any) => {
 
   return (
     <SafeAreaView>
-      <ScrollView style={{height: '100%'}}>
-        <View>
+      <KeyboardAvoidingView style={{display: 'flex', height: '100%', width: '100%'}} behavior="padding" enabled>
+        <View style={{width: '100%', display: 'flex', alignContent: 'flex-start', flexDirection: 'row'}}>
           <Button
             onPress={() => {
               props.navigation.navigate('TabScreen');
@@ -65,10 +78,29 @@ const ReviewScreen = (props: any) => {
             accessibilityLabel="Go back"
           />
         </View>
+
         <Text>Product Name: {product && product.name}</Text>
         <Text>Product Description: {product && product.ncrdata}</Text>
-        {reviews.length == 0 ? <Text>no reviews</Text> : getReviewList(props)}
-      </ScrollView>
+
+        <ScrollView>
+          {reviews.length == 0 ? <Text>no reviews</Text> : getReviewList(props)}
+        </ScrollView>
+
+        <View style={{display: 'flex', flexDirection: 'column', width: '100%'}}>
+          <Input
+            placeholder="Write a review"
+            onChangeText={text => setReviewMessage(text)}
+          />
+
+          <SignupButton
+            title="Submit"
+            onPress={() => {
+
+            }}>
+          </SignupButton>
+        </View>
+      </KeyboardAvoidingView>
+
     </SafeAreaView>
   );
 };
