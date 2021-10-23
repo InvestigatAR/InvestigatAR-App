@@ -9,9 +9,10 @@ const ScannerScreen = () => {
 
   const barcodeRecognized = ({ barcodes }) => {
     barcodes.forEach(barcode => {
-      console.log('barcode');
-      console.log(barcode);
-      console.warn(barcode.data);
+      if(barcode && barcode.data) {
+        const productId = barcode.data;
+        console.log('product id', productId);
+      }
     });
   };
 
