@@ -1,9 +1,5 @@
 const USER_SESSION_INITIAL_STATE = {
-  current: {
-    accessToken: 'none',
-    refreshToken: 'none',
-    user: 'none',
-  },
+  current: undefined,
 };
 
 export const userSessionReducer = (
