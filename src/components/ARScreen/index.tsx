@@ -60,7 +60,7 @@ const Index = () => {
   );
 };
 
-const ARScene = () => {
+const ARScreen = () => {
   return (
     <ViroARSceneNavigator
       autofocus={true}
@@ -83,4 +83,4 @@ let styles = StyleSheet.create({
   },
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(ARScene);
+export default connect(mapStateToProps, mapDispatchToProps)(ARScreen);

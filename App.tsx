@@ -8,6 +8,8 @@ import SignupScreen from './src/components/SignupScreen';
 import {store} from './src/redux/store/Store';
 import {Provider} from 'react-redux';
 import {LogBox} from 'react-native';
+import ARScreen from './src/components/ARScreen';
+import ReviewScreen from "./src/components/ReviewScreen";
 
 const Stack = createStackNavigator();
 
@@ -37,6 +39,16 @@ const App = () => {
           <Stack.Screen
             name={'TabScreen'}
             component={TabScreen}
+            options={{headerShown: false, headerLeft: () => null}}
+          />
+          <Stack.Screen
+            name={'ARScreen'}
+            component={ARScreen}
+            options={{headerShown: false, headerLeft: () => null}}
+          />
+          <Stack.Screen
+            name={'ReviewScreen'}
+            component={ReviewScreen}
             options={{headerShown: false, headerLeft: () => null}}
           />
         </Stack.Navigator>
