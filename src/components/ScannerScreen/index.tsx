@@ -18,10 +18,11 @@ const ScannerScreen = (props: any) => {
     const [imageWidth, setImageWidth] = useState<any>();
     const [isLoaded, setIsLoaded] = useState<boolean>(false);
 
-    const tflite = new Tflite();
+    let tflite = new Tflite();
 
     const onSelectImage = () => {
-        console.log(tflite);
+        tflite = new Tflite();
+        console.log("Logging tflite ", tflite);
 
         if (!isLoaded) {
             tflite.loadModel({
