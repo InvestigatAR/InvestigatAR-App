@@ -64,37 +64,22 @@ export const refresh = (props: any) => {
   return axios(config);
 };
 
-export const getProduct = (
-  props: any,
-  id?: any,
-  category?: any,
-  sortBySus: boolean = true,
-) => {
-  const params: any = {
-    sortBySus: sortBySus,
-  };
+export const getProduct = (props: any, queryParams: string) => {
+  const url = `${API_URL}/api/v1/product/get` + queryParams;
 
-  if (category !== undefined) {
-    params.category = category;
-  }
-
-  if (id !== undefined) {
-    params.id = id;
-  }
-
-  const data = JSON.stringify({
-    query: '',
-    variables: params,
-  });
+  console.log('making get product request to ', url);
+  console.log(
+    'using access token',
+    props.userSession.current.accessToken.token,
+  );
 
   const config: any = {
     method: 'get',
-    url: `${API_URL}/api/v1/product/get`,
+    url: url,
     headers: {
       Authorization: `Bearer ${props.userSession.current.accessToken.token}`,
       'Content-Type': 'application/json',
     },
-    data: data,
   };
 
   return axios(config);
