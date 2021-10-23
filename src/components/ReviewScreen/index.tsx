@@ -104,7 +104,7 @@ const ReviewScreen = (props: any) => {
           )}
         </ScrollView>
 
-        <View style={{display: 'flex', flexDirection: 'column', width: '100%'}}>
+        {!(reviews.some((review) => (review !== null && review.user.id === props.userSession.current.user.id))) && <View style={{display: 'flex', flexDirection: 'column', width: '100%'}}>
           <Input
             placeholder="Write a review"
             onChangeText={text => setReviewMessage(text)}
@@ -127,7 +127,7 @@ const ReviewScreen = (props: any) => {
                 });
             }}
           />
-        </View>
+        </View>}
       </KeyboardAvoidingView>
     </SafeAreaView>
   );
