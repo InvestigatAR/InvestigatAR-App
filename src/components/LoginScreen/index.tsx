@@ -3,7 +3,8 @@ import React, {useState} from 'react';
 import { connect } from "react-redux";
 import { mapDispatchToProps, mapStateToProps } from "../LaunchScreen";
 import Input from '../Shared/input'
-import SignupButton from '../Shared/singupbutton'
+import SignupButton from '../Shared/signupbutton'
+import GenButton from '../Shared/genButton';
 
 const LoginScreen = (props: any) => {
 
@@ -12,7 +13,7 @@ const LoginScreen = (props: any) => {
 
     const signup = async () => {
         if (username && password) {
-            
+            // make api call with username and password
         } else {
             Alert.alert("Error", "Missing Fields");
         }
@@ -20,11 +21,13 @@ const LoginScreen = (props: any) => {
     // use state hook to refer to input field for getting information of whats typed
     return (
         <View style={styles.container}>
-            <Text>Login Screen</Text>
+            <Text style={{fontSize: 40, fontWeight: 'bold', marginVertical: 20}}> Login Screen</Text>
+            
             <Input placeholder="Username" onChangeText={(text) => setUsername(text)}/>
             <Input placeholder="Password" secureTextEntry onChangeText={(text) => setPassword(text)}/>
             <SignupButton title="Login" onPress={() => props.navigation.navigate('TabScreen')} />
-            <Button title="Create an Account" onPress={() => props.navigation.navigate('SignupScreen')}/>
+            {/* <Button title="Create an Account" onPress={() => props.navigation.navigate('SignupScreen')}/> */}
+            <GenButton title="Create an Account" onPress={() => props.navigation.navigate('SignupScreen')}/>
         </View>
     );
 };
