@@ -1,5 +1,5 @@
 import {ImageBackground, StyleSheet, Text, View, FlatList, ScrollView} from 'react-native';
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { mapDispatchToProps, mapStateToProps } from "../LaunchScreen";
 import { createSerializableStateInvariantMiddleware } from '@reduxjs/toolkit';
@@ -8,13 +8,20 @@ import { Item } from 'react-native-paper/lib/typescript/components/List/List';
 import { iteratorSymbol } from 'immer/dist/internal';
 import PersonalInfo from '../Shared/personal_info';
 import History from '../Shared/History';
+import { getProductsFromStorage } from "../../service/utils";
 
 
-const items = [ {id: 1, name: 'chair'}, {id: 2, name: 'table'}, {id: 3, name: 'banana'}, {id: 1, name: 'apple'}, {id: 1, name: 'tomato'},{id: 1, name: 'chocolate'},
-{id: 1, name: 'chair'}, {id: 1, name: 'chair'}, ];
+// const items = [ {id: 1, name: 'chair'}, {id: 2, name: 'table'}, {id: 3, name: 'banana'}, {id: 1, name: 'apple'}, {id: 1, name: 'tomato'},{id: 1, name: 'chocolate'},
+// {id: 1, name: 'chair'}, {id: 1, name: 'chair'}, ];
 const HomeScreen = (props: any) => {
+  const [items, setItems] = useState<Array<any>>([]);
+
   useEffect(() => {
     // console.log("Hello", props.userSession.current.user.username);
+    getProductsFromStorage().then((res: any) => {
+      const productsArr = JSON.parse(res);
+      setItems(productsArr);
+    });
   }, []);
   const name = props.userSession.current ? props.userSession.current.user.name : 'none';
 
@@ -74,7 +81,7 @@ const HomeScreen = (props: any) => {
       <View style={{
         marginVertical: 10
       }}>
-        <FlatList 
+        <FlatList
         data={items}
         renderItem={({item}) => (
           <View>
@@ -86,10 +93,10 @@ const HomeScreen = (props: any) => {
 
 
       </View>
-      
 
-      
-      
+
+
+
 
       {/* <Text>{props.userSession.current ? JSON.stringify(props.userSession.current) : 'no user session'}</Text> */}
     </View>
