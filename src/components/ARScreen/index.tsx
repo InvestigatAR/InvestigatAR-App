@@ -11,6 +11,7 @@ import {
 import {connect} from 'react-redux';
 import {mapDispatchToProps, mapStateToProps} from '../LaunchScreen';
 import {getProduct} from '../../service/api';
+import { addProductToStorage } from "../../service/utils";
 
 const Index = (props?: any) => {
   const modelUrl = props.sceneNavigator.viroAppProps.modelUrl
@@ -80,6 +81,8 @@ const ARScreen = (props: any) => {
         console.log('product data', res.data);
 
         const product: any = res.data;
+
+        addProductToStorage(product);
 
         setProduct(product);
       })
