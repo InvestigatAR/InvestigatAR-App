@@ -11,7 +11,7 @@ const LaunchScreen = (props: any) => {
 
       // parse result from async storage
       if (res) {
-        props.setUserSession(JSON.stringify(res));
+        props.setUserSession(JSON.parse(res));
 
         // go to tab screen
         props.navigation.navigate('TabScreen');

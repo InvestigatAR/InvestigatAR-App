@@ -12,11 +12,13 @@ import {
 } from 'react-native';
 
 const ProfileScreen = (props: any) => {
-  console.log(props.userSession.current);
+  const profileData = props.userSession.current;
 
-  const name: string = (props.userSession.current && props.userSession.current.user) ? props.userSession.current.user.name : 'none';
-  const email: string = (props.userSession.current && props.userSession.current.user) ? props.userSession.current.user.email : 'none';
-  const username: string = (props.userSession.current && props.userSession.current.user) ? props.userSession.current.user.username : 'none';
+  const name: string = profileData.user.name;
+  const email: string = profileData.user.email;
+  const username: string = profileData.user.username;
+
+  console.log(name);
 
   return (
     <SafeAreaView>
@@ -60,7 +62,7 @@ const ProfileScreen = (props: any) => {
           style={styles.profile}
           source={require('./profile_picture.png')}
         />
-        <Text>{name}</Text>
+        <Text style={{color: 'black'}}>{'asdf'}</Text>
         <Text>{email}</Text>
         <Text>{username}</Text>
       </View>
