@@ -38,7 +38,7 @@ const TabScreen = () => {
             tabBarLabel: 'Profile',
             tabBarIcon: ({color, size}) => (
               <MaterialCommunityIcons
-                name="account"
+                name="torso"
                 color={color}
                 size={size}
               />
