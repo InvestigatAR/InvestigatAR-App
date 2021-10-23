@@ -10,7 +10,7 @@ import {
   TextInput,
   View,
 } from 'react-native';
-import {getProduct} from '../../service/api';
+import {createReview, getProduct} from '../../service/api';
 import Input from '../Shared/input';
 import SignupButton from '../Shared/signupbutton';
 
@@ -51,6 +51,10 @@ const ReviewScreen = (props: any) => {
       console.log('review', review);
       console.log('review', review);
       console.log('review', review);
+
+      if (review === null) {
+        return <View />;
+      }
 
       return (
         <View
@@ -93,7 +97,11 @@ const ReviewScreen = (props: any) => {
         <Text>Product Description: {product && product.ncrdata}</Text>
 
         <ScrollView>
-          {reviews.length == 0 ? <Text>no reviews</Text> : getReviewList(props)}
+          {reviews.length === 0 ? (
+            <Text>no reviews</Text>
+          ) : (
+            getReviewList(props)
+          )}
         </ScrollView>
 
         <View style={{display: 'flex', flexDirection: 'column', width: '100%'}}>
@@ -102,7 +110,23 @@ const ReviewScreen = (props: any) => {
             onChangeText={text => setReviewMessage(text)}
           />
 
-          <SignupButton title="Submit" onPress={() => {}} />
+          <SignupButton
+            title="Submit"
+            onPress={() => {
+              const rating = 0.5;
+              const description = reviewMessage;
+              const productId = product.id;
+
+              createReview(props, rating, description, productId)
+                .then(res => {
+                  console.log('review sent', res);
+                  getProductFromServer();
+                })
+                .catch((err: any) => {
+                  console.warn('error', err);
+                });
+            }}
+          />
         </View>
       </KeyboardAvoidingView>
     </SafeAreaView>
