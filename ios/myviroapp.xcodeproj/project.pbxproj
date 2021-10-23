@@ -504,7 +504,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.vivek.myviroapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.deepdev.investigatar;
 				PRODUCT_NAME = myviroapp;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -530,7 +530,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.vivek.myviroapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.deepdev.investigatar;
 				PRODUCT_NAME = myviroapp;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
