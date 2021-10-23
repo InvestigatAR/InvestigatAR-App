@@ -72,6 +72,8 @@ const ScannerScreen = (props: any) => {
     };
 
     const renderResults = () => {
+        onSelectImage();
+
         return inference.map((res, id) => {
             const left = res["rect"]["x"] * imageWidth;
             const top = res["rect"]["y"] * imageHeight;
