@@ -18,7 +18,7 @@ const ScannerScreen = (props: any) => {
       'Please choose one of the following',
       [
         {
-          text: 'View Reviews',
+          text: 'Product Info',
           onPress: () => {
             props.setProductScan(productId);
             props.navigation.navigate('ReviewScreen');
@@ -59,7 +59,7 @@ const ScannerScreen = (props: any) => {
     barcodes.forEach(barcode => {
       if (barcode && barcode.data && barcode.data.length > 0) {
         const productId = barcode.data;
-        console.log('product id', productId);
+        // console.log('product id', productId);
         showAlert(productId);
       }
     });

@@ -67,35 +67,22 @@ export const refresh = (props: any) => {
 export const getProduct = (
   props: any,
   queryParams: string,
-  // id?: any,
-  // category?: any,
-  // sortBySus: boolean = true,
 ) => {
-  // const params: any = {
-  //   sortBySus: sortBySus,
-  // };
+  const url = `${API_URL}/api/v1/product/get` + queryParams;
 
-  // if (category !== undefined) {
-  //   params.category = category;
-  // }
-
-  // if (id !== undefined) {
-  //   params.id = id;
-  // }
-
-  const data = JSON.stringify({
-    query: '',
-    variables: {},
-  });
+  console.log('making get product request to ', url);
+  console.log(
+    'using access token',
+    props.userSession.current.accessToken.token,
+  );
 
   const config: any = {
     method: 'get',
-    url: `${API_URL}/api/v1/product/get` + queryParams,
+    url: url,
     headers: {
       Authorization: `Bearer ${props.userSession.current.accessToken.token}`,
       'Content-Type': 'application/json',
     },
-    data: data,
   };
 
   return axios(config);
