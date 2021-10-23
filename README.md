@@ -9,7 +9,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/InvestigatAR/InvestigatAR-App">
-    <img src="logo.jpeg" alt="Logo" width="140" height="120" >
+    <img src="https://github.com/InvestigatAR/InvestigatAR-App/blob/main/logo.svg" alt="Logo" width="140" height="120" >
   </a>
 
   <h3 align="center">InvestigatAR</h3>
