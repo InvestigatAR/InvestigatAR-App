@@ -4,7 +4,7 @@ import HomeScreen from '../HomeScreen';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import ARScene from '../ARScene';
 import {NavigationContainer} from '@react-navigation/native';
-
+import ProfileScreen from '../ProfileScreen';
 const Tab = createBottomTabNavigator();
 
 const TabScreen = () => {
@@ -32,6 +32,16 @@ const TabScreen = () => {
           }}
           name="AR"
           component={ARScene}
+        />
+        <Tab.Screen
+          options={{
+            tabBarLabel: 'Profile',
+            tabBarIcon: ({color, size}) => (
+              <MaterialCommunityIcons name="camera" color={color} size={size} />
+            ),
+          }}
+          name="Profile"
+          component={ProfileScreen}
         />
       </Tab.Navigator>
     </NavigationContainer>

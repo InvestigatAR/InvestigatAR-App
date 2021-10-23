@@ -17,10 +17,10 @@ const LaunchScreen = (props: any) => {
         props.navigation.navigate('TabScreen');
 
         // prevent from going back
-        props.navigation.reset({
-          index: 0,
-          routes: [{name: 'TabScreen'}],
-        });
+        // props.navigation.reset({
+        //   index: 0,
+        //   routes: [{name: 'TabScreen'}],
+        // });
 
         return;
       }
@@ -30,18 +30,18 @@ const LaunchScreen = (props: any) => {
           props.navigation.navigate('TabScreen');
 
           // prevent from going back
-          props.navigation.reset({
-            index: 0,
-            routes: [{name: 'TabScreen'}],
-          });
+          // props.navigation.reset({
+          //   index: 0,
+          //   routes: [{name: 'TabScreen'}],
+          // });
         } else {
           props.navigation.navigate('LoginScreen');
 
           // prevent from going back
-          props.navigation.reset({
-            index: 0,
-            routes: [{name: 'LoginScreen'}],
-          });
+          // props.navigation.reset({
+          //   index: 0,
+          //   routes: [{name: 'LoginScreen'}],
+          // });
         }
       }
     });

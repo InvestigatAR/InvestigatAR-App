@@ -58,7 +58,7 @@ const LoginScreen = (props: any) => {
               // });
               const userCredentials = res.data;
               props.setUserSession(userCredentials);
-              // props.navigation.navigate('TabScreen');
+              props.navigation.navigate('TabScreen');
               // save user credentials to storage
               AsyncStorage.setItem(
                 'userSession',

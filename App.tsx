@@ -14,6 +14,7 @@ const Stack = createStackNavigator();
 const App = () => {
   // disable logging
   LogBox.ignoreAllLogs(true);
+
   return (
     <Provider store={store}>
       <NavigationContainer>
