@@ -1,4 +1,4 @@
-import {Button, View} from 'react-native';
+import {View} from 'react-native';
 import React, {useEffect} from 'react';
 import {setUserSession} from '../../redux/actions/UserSessionActions';
 import {AnyAction, bindActionCreators, Dispatch} from 'redux';
