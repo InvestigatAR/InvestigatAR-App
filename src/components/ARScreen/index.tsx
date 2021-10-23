@@ -52,7 +52,7 @@ const Index = (props?: any) => {
         source={{
           uri: modelUrl,
         }}
-        position={[0, 0, 0]}
+        position={[2, 0, 2]}
         scale={[1, 1, 1]}
         type="GLB"
         onLoadStart={_onLoadStart}
