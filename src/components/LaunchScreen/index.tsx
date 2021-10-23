@@ -17,7 +17,8 @@ const LaunchScreen = (props: any) => {
     <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
       <Button
         title="Get Started"
-        onPress={() => props.navigation.navigate('TabScreen')}
+        // change TabScreen to LoginScreen
+        onPress={() => props.navigation.navigate('LoginScreen')}
       />
     </View>
   );
