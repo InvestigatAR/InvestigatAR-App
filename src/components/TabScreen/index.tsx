@@ -33,16 +33,16 @@ const TabScreen = () => {
           name="Scan"
           component={ScannerScreen}
         />
-        <Tab.Screen
-          options={{
-            tabBarLabel: 'AR',
-            tabBarIcon: ({color, size}) => (
-              <MaterialCommunityIcons name="camera" color={color} size={size} />
-            ),
-          }}
-          name="AR"
-          component={ARScene}
-        />
+        {/*<Tab.Screen*/}
+        {/*  options={{*/}
+        {/*    tabBarLabel: 'AR',*/}
+        {/*    tabBarIcon: ({color, size}) => (*/}
+        {/*      <MaterialCommunityIcons name="camera" color={color} size={size} />*/}
+        {/*    ),*/}
+        {/*  }}*/}
+        {/*  name="AR"*/}
+        {/*  component={ARScene}*/}
+        {/*/>*/}
         <Tab.Screen
           options={{
             tabBarLabel: 'Profile',
