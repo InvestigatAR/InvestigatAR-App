@@ -48,8 +48,8 @@ const LoginScreen = (props: any) => {
         onPress={() => {
           console.log('username', username);
           console.log('password', password);
-
-          signin(props, username as string, password as string)
+          if (username && password) {
+            signin(props, username as string, password as string)
             .then((res: any) => {
               // prevent from going back
               // props.navigation.reset({
@@ -68,6 +68,11 @@ const LoginScreen = (props: any) => {
             .catch((err: any) => {
               console.warn('login error', err);
             });
+          } 
+          else {
+            Alert.alert("Missing Fields", "Please fill out all fields before loggin in");
+          }
+          
         }}
       />
       {/* <Button title="Create an Account" onPress={() => props.navigation.navigate('SignupScreen')}/> */}

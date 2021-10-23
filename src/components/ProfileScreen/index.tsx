@@ -7,7 +7,7 @@ const ProfileScreen = (props: any) => {
   return (
     <SafeAreaView>
       <Button
-        title={'signout'}
+        title={'Signout'}
         onPress={() => {
           AsyncStorage.clear().then(() => {
             props.setUserSession(undefined);
