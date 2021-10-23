@@ -16,10 +16,11 @@ const ScannerScreen = (props: any) => {
     const [source, setSource] = useState<any>();
     const [imageHeight, setImageHeight] = useState<any>();
     const [imageWidth, setImageWidth] = useState<any>();
-
-    const tflite = new Tflite();
+    const [tflite, setTfLite] = useState<any>();
 
     useEffect(() => {
+        setTfLite(new Tflite());
+
         tflite.loadModel({
                 model: "models/ssd_mobilenet.tflite",
                 labels: "models/ssd_mobilenet.txt"
