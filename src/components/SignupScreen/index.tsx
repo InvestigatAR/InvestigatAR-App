@@ -22,7 +22,6 @@ const SignupScreen = (props: any) => {
 
     return (
         <View style={styles.container}>
-            <GenButton title="Back"  onPress={() => props.navigation.navigate('LoginScreen')} />
             {/* <Text>Sign Up Screen</Text> */}
             <Text style={{fontSize: 40, fontWeight: 'bold', marginVertical: 20}}> Signup Screen</Text>
             <Input placeholder="Name" onChangeText={(text) => setName(text)}/>
@@ -64,7 +63,9 @@ const SignupScreen = (props: any) => {
                     }
                 }}
             />
-        
+
+          <GenButton title="Already have an account?"  onPress={() => props.navigation.navigate('LoginScreen')} />
+
         </View>
     );
 };
