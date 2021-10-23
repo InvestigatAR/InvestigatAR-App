@@ -492,7 +492,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+<<<<<<< HEAD
 				DEVELOPMENT_TEAM = RPL98Z82M9;
+=======
+				DEVELOPMENT_TEAM = 4FQ499B3H5;
+>>>>>>> ba9a2246277a66ca334d5d881f8e107b7fd4e393
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = myviroapp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -504,7 +508,11 @@
 					"-ObjC",
 					"-lc++",
 				);
+<<<<<<< HEAD
 				PRODUCT_BUNDLE_IDENTIFIER = com.rkotadia.myviroapp;
+=======
+				PRODUCT_BUNDLE_IDENTIFIER = com.vivek.myviroapp;
+>>>>>>> ba9a2246277a66ca334d5d881f8e107b7fd4e393
 				PRODUCT_NAME = myviroapp;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -519,7 +527,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+<<<<<<< HEAD
 				DEVELOPMENT_TEAM = RPL98Z82M9;
+=======
+				DEVELOPMENT_TEAM = 4FQ499B3H5;
+>>>>>>> ba9a2246277a66ca334d5d881f8e107b7fd4e393
 				INFOPLIST_FILE = myviroapp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -530,7 +542,11 @@
 					"-ObjC",
 					"-lc++",
 				);
+<<<<<<< HEAD
 				PRODUCT_BUNDLE_IDENTIFIER = com.rkotadia.myviroapp;
+=======
+				PRODUCT_BUNDLE_IDENTIFIER = com.vivek.myviroapp;
+>>>>>>> ba9a2246277a66ca334d5d881f8e107b7fd4e393
 				PRODUCT_NAME = myviroapp;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
