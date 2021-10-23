@@ -20,6 +20,8 @@ target 'myviroapp' do
       'BarcodeDetectorMLKit'
     ]
 
+  pod 'TfliteReactNative', :path => '../node_modules/tflite-react-native'
+
   target 'myviroappTests' do
     inherit! :complete
     # Pods for testing
