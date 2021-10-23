@@ -1,11 +1,13 @@
-import {Button, Text, View, Alert} from 'react-native';
+import {Button, Text, View, Alert, StyleSheet} from 'react-native';
 import React, {useState} from 'react';
 import { connect } from "react-redux";
 import { mapDispatchToProps, mapStateToProps } from "../LaunchScreen";
+import Input from '../Shared/input'
+import SignupButton from '../Shared/singupbutton'
 
 const LoginScreen = (props: any) => {
 
-    const [username, setUserName] = useState<String | null>(null);
+    const [username, setUsername] = useState<String | null>(null);
     const [password, setPassword] = useState<String | null>(null);
 
     const signup = async () => {
@@ -17,16 +19,20 @@ const LoginScreen = (props: any) => {
     };
     // use state hook to refer to input field for getting information of whats typed
     return (
-        <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-        <Text>INVESTIGATAR Login Screen</Text>
-        <Button
-            title="Login"
-            // change TabScreen to LoginScreen
-            onPress={() => props.navigation.navigate('TabScreen')}
-        />
-
+        <View style={styles.container}>
+            <Text>Login Screen</Text>
+            <Input placeholder="Username" onChangeText={(text) => setUsername(text)}/>
+            <Input placeholder="Password" secureTextEntry onChangeText={(text) => setPassword(text)}/>
+            <SignupButton title="Login" onPress={() => props.navigation.navigate('TabScreen')} />
         </View>
     );
 };
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center'
+    }
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginScreen);

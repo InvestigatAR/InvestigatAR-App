@@ -8,14 +8,14 @@ interface Props {
     onPress: () => void
 }
 
-const Button : FC <Props> = (props) => {
+const SignupButton : FC <Props> = (props) => {
     return (
         <TouchableOpacity style={styles.container} onPress={props.onPress}>
             <Text style={styles.text}>{props.title}</Text>
         </TouchableOpacity>
     )
 }
-export default Button
+export default SignupButton
 
 const styles = StyleSheet.create({
     container: {
