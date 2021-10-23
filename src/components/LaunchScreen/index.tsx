@@ -1,6 +1,9 @@
 import {AsyncStorage, View} from 'react-native';
 import React, {useEffect} from 'react';
-import {setUserSession} from '../../redux/actions/UserSessionActions';
+import {
+  setProductScan,
+  setUserSession,
+} from '../../redux/actions/UserSessionActions';
 import {AnyAction, bindActionCreators, Dispatch} from 'redux';
 import {connect} from 'react-redux';
 
@@ -23,8 +26,7 @@ const LaunchScreen = (props: any) => {
         // });
 
         return;
-      }
-      else {
+      } else {
         // go to login screen if user is not logged in
         if (props.userSession.current) {
           props.navigation.navigate('TabScreen');
@@ -51,14 +53,15 @@ const LaunchScreen = (props: any) => {
 };
 
 export const mapStateToProps = (state: any) => {
-  const {userSession} = state;
-  return {userSession};
+  const {userSession, productScan} = state;
+  return {userSession, productScan};
 };
 
 export const mapDispatchToProps = (dispatch: Dispatch<AnyAction>) =>
   bindActionCreators(
     {
       setUserSession,
+      setProductScan,
     },
     dispatch,
   );

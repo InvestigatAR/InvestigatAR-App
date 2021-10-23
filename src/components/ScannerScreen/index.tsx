@@ -4,11 +4,11 @@ import {mapDispatchToProps, mapStateToProps} from '../LaunchScreen';
 import {View, Alert} from 'react-native';
 import {RNCamera} from 'react-native-camera';
 
-const ScannerScreen = () => {
+const ScannerScreen = (props: any) => {
   const [popupShown, setPopupShown] = useState<any>(false);
   const [camera, setCamera] = useState<any>(undefined);
 
-  const showAlert = () => {
+  const showAlert = (productId) => {
     if (popupShown) {
       return;
     }
@@ -20,6 +20,7 @@ const ScannerScreen = () => {
         {
           text: 'View Reviews',
           onPress: () => {
+            props.setProductScan(productId);
             Alert.alert('view reviews pressed');
             setPopupShown(false);
           },
@@ -28,6 +29,7 @@ const ScannerScreen = () => {
         {
           text: 'View in AR',
           onPress: () => {
+            props.setProductScan(productId);
             Alert.alert('view in ar pressed');
             setPopupShown(false);
           },
@@ -49,14 +51,14 @@ const ScannerScreen = () => {
         },
       },
     );
-  }
+  };
 
   const barcodeRecognized = ({barcodes}) => {
     barcodes.forEach(barcode => {
       if (barcode && barcode.data && barcode.data.length > 0) {
         const productId = barcode.data;
         console.log('product id', productId);
-        showAlert();
+        showAlert(productId);
       }
     });
   };
