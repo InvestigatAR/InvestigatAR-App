@@ -24,6 +24,7 @@ const LoginScreen = (props: any) => {
             <Input placeholder="Username" onChangeText={(text) => setUsername(text)}/>
             <Input placeholder="Password" secureTextEntry onChangeText={(text) => setPassword(text)}/>
             <SignupButton title="Login" onPress={() => props.navigation.navigate('TabScreen')} />
+            <Button title="Create an Account" onPress={() => props.navigation.navigate('SignupScreen')}/>
         </View>
     );
 };
