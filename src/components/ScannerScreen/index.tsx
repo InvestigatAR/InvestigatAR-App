@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { mapDispatchToProps, mapStateToProps } from "../LaunchScreen";
-import { View, Alert, ImageBackground, ImagePickerIOS } from "react-native";
+import { View, Alert, ImageBackground, ImagePickerIOS, StyleSheet, Text } from "react-native";
 import { RNCamera } from "react-native-tflite-camera";
 import GenButton from "../Shared/genButton";
 import Tflite from "tflite-react-native";
@@ -13,7 +13,9 @@ const ScannerScreen = (props: any) => {
     const [popupShown, setPopupShown] = useState<any>(false);
     const [camera, setCamera] = useState<any>(undefined);
     const [inference, setInference] = useState<any>();
-    const [data, setData] = useState<any>();
+    const [source, setSource] = useState<any>();
+    const [imageHeight, setImageHeight] = useState<any>();
+    const [imageWidth, setImageWidth] = useState<any>();
 
     const tflite = new Tflite();
 
@@ -38,6 +40,7 @@ const ScannerScreen = (props: any) => {
             }
         };
 
+        //Load image from image library
         ImagePicker.launchImageLibrary(options, (response: any) => {
             if (response.didCancel) {
                 console.log("User cancelled image picker");
@@ -49,126 +52,154 @@ const ScannerScreen = (props: any) => {
                 const w = response.width;
                 const h = response.height;
 
-                this.setState({
-                    source: { uri: path },
-                    imageHeight: h * width / w,
-                    imageWidth: width
-                });
+                setImageWidth(w);
+                setImageHeight(h);
+                setSource({ uri: path });
+
+                tflite.detectObjectOnImage({
+                        path,
+                        threshold: 0.2,
+                        numResultsPerClass: 1
+                    },
+                    (err, res) => {
+                        if (err) console.log(err);
+                        else setInference({ recognitions: res });
+                    });
             }
         });
+    };
 
-        const renderResults = () => {
-            tflite.detectObjectOnImage({
-                    camera,
-                    threshold: 0.2,
-                    numResultsPerClass: 1
-                },
-                (err, res) => {
-                    if (err) console.log(err);
-                    else setInference(res);
-                });
-
+    const renderResults = () => {
+        return inference.map((res, id) => {
+            const left = res["rect"]["x"] * imageWidth;
+            const top = res["rect"]["y"] * imageHeight;
+            const width = res["rect"]["w"] * imageWidth;
+            const height = res["rect"]["h"] * imageHeight;
             return (
-                <React.Fragment>
-                    <View style={{
-                        borderWidth: 2,
-                        borderRadius: 10,
-                        position: "absolute",
-                        borderColor: "#F00",
-                        justifyContent: "center",
-                        backgroundColor: "rgba(255, 255, 255, 0.9)",
-                        padding: 10,
-                        ...bounds.size,
-                        left: bounds.origin.x,
-                        top: bounds.origin.y
-                    }}
-                    >
-
-                    </View>
-                </React.Fragment>
+                <View key={id} style={[styles.box, { top, left, width, height }]}>
+                    <Text style={{ color: "white", backgroundColor: "blue" }}>
+                        {res["detectedClass"] + " " + (res["confidenceInClass"] * 100).toFixed(0) + "%"}
+                    </Text>
+                </View>
             );
-        };
+        });
+    };
 
-        const showAlert = (productId) => {
-            if (popupShown) {
-                return;
-            }
-            setPopupShown(true);
-            Alert.alert(
-                "Product Detected!",
-                "Please choose one of the following",
-                [
-                    {
-                        text: "View Reviews",
-                        onPress: () => {
-                            props.setProductScan(productId);
-                            props.navigation.navigate("ReviewScreen");
-                            console.log("view reviews pressed");
-                            setPopupShown(false);
-                        },
-                        style: "default"
-                    },
-                    {
-                        text: "View in AR",
-                        onPress: () => {
-                            props.setProductScan(productId);
-                            props.navigation.navigate("ARScreen");
-                            console.log("view in ar pressed");
-                            setPopupShown(false);
-                        },
-                        style: "default"
-                    },
-                    {
-                        text: "Cancel",
-                        onPress: () => {
-                            console.log("cancel pressed");
-                            setPopupShown(false);
-                        },
-                        style: "cancel"
-                    }
-                ],
+    const showAlert = (productId) => {
+        if (popupShown) {
+            return;
+        }
+        setPopupShown(true);
+        Alert.alert(
+            "Product Detected!",
+            "Please choose one of the following",
+            [
                 {
-                    cancelable: true,
-                    onDismiss: () => {
+                    text: "View Reviews",
+                    onPress: () => {
+                        props.setProductScan(productId);
+                        props.navigation.navigate("ReviewScreen");
+                        console.log("view reviews pressed");
                         setPopupShown(false);
-                    }
+                    },
+                    style: "default"
+                },
+                {
+                    text: "View in AR",
+                    onPress: () => {
+                        props.setProductScan(productId);
+                        props.navigation.navigate("ARScreen");
+                        console.log("view in ar pressed");
+                        setPopupShown(false);
+                    },
+                    style: "default"
+                },
+                {
+                    text: "Cancel",
+                    onPress: () => {
+                        console.log("cancel pressed");
+                        setPopupShown(false);
+                    },
+                    style: "cancel"
                 }
-            );
-        };
-
-        const barcodeRecognized = ({ barcodes }) => {
-            barcodes.forEach(barcode => {
-                if (barcode && barcode.data && barcode.data.length > 0) {
-                    const productId = barcode.data;
-                    console.log("product id", productId);
-                    showAlert(productId);
+            ],
+            {
+                cancelable: true,
+                onDismiss: () => {
+                    setPopupShown(false);
                 }
-            });
-        };
-
-        const takePicture = async function(ref) {
-            const options = { quality: 0.5, base64: true };
-            const data = await ref.takePictureAsync(options);
-
-            //  eslint-disable-next-line
-            console.log(data.uri);
-        };
-
-        return (
-            <View style={{ display: "flex", width: "100%", height: "100%" }}>
-                <RNCamera
-                    ref={ref => {
-                        setCamera(ref);
-                    }}
-                    style={{
-                        flex: 1
-                    }}
-                    onGoogleVisionBarcodesDetected={barcodeRecognized}
-
-                />
-                <GenButton title={"Recognize object"} onPress={renderResults} />
-            </View>
+            }
         );
     };
 
-    export default connect(mapStateToProps, mapDispatchToProps)(ScannerScreen);
+    const barcodeRecognized = ({ barcodes }) => {
+        barcodes.forEach(barcode => {
+            if (barcode && barcode.data && barcode.data.length > 0) {
+                const productId = barcode.data;
+                console.log("product id", productId);
+                showAlert(productId);
+            }
+        });
+    };
+
+    return (
+        <View style={{ display: "flex", width: "100%", height: "100%" }}>
+            <RNCamera
+                ref={ref => {
+                    setCamera(ref);
+                }}
+                style={{
+                    flex: 1
+                }}
+                onGoogleVisionBarcodesDetected={barcodeRecognized}
+
+            />
+            <GenButton title={"Recognize object"} onPress={renderResults} />
+        </View>
+    );
+};
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: "white"
+    },
+    imageContainer: {
+        borderColor: "blue",
+        borderRadius: 5,
+        alignItems: "center"
+    },
+    text: {
+        color: "blue"
+    },
+    button: {
+        width: 200,
+        backgroundColor: "blue",
+        borderRadius: 10,
+        height: 40,
+        alignItems: "center",
+        justifyContent: "center",
+        marginBottom: 10
+    },
+    buttonText: {
+        color: "white",
+        fontSize: 15
+    },
+    box: {
+        position: "absolute",
+        borderColor: "blue",
+        borderWidth: 2
+    },
+    boxes: {
+        position: "absolute",
+        left: 0,
+        right: 0,
+        bottom: 0,
+        top: 0
+    }
+});
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(ScannerScreen);
