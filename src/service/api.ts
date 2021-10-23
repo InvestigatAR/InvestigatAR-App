@@ -97,9 +97,17 @@ export const createReview = (
     productId: productId,
   });
 
+  const url = `${API_URL}/api/v1/review/set`;
+  const accessToken = props.userSession.current.accessToken.token;
+
+  console.log('making create review request to ', url);
+  console.log('using access token', accessToken);
+
+  console.log('data sent', data);
+
   const config: any = {
     method: 'post',
-    url: `${API_URL}/api/v1/review/set`,
+    url: url,
     headers: {
       Authorization: `Bearer ${props.userSession.current.accessToken.token}`,
       'Content-Type': 'application/json',

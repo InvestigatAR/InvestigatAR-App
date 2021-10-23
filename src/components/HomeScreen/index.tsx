@@ -53,13 +53,13 @@ const HomeScreen = (props: any) => {
             }}> {name} </Text>
           </View>
         </ImageBackground>
-        
+
 
         </View>
     )
   }
   return (
-    
+
     <View style={{flex: 1, alignItems: 'center'}}>
       {renderHeader(props)}
       <Text style={
@@ -88,6 +88,7 @@ const HomeScreen = (props: any) => {
 
       
       
+
       {/* <Text>{props.userSession.current ? JSON.stringify(props.userSession.current) : 'no user session'}</Text> */}
     </View>
   );
