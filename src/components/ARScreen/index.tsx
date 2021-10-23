@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {StyleSheet} from 'react-native';
 import {
   ViroARScene,
@@ -8,8 +8,8 @@ import {
   Viro3DObject,
   ViroAmbientLight,
 } from '@viro-community/react-viro';
-import { connect } from "react-redux";
-import { mapDispatchToProps, mapStateToProps } from "../LaunchScreen";
+import {connect} from 'react-redux';
+import {mapDispatchToProps, mapStateToProps} from '../LaunchScreen';
 
 const Index = () => {
   const [arTracking, setArTracking] = useState(false);
@@ -60,7 +60,12 @@ const Index = () => {
   );
 };
 
-const ARScreen = () => {
+const ARScreen = (props: any) => {
+  useEffect(() => {
+    const productId = props.productScan.current;
+    console.log('product id', productId);
+  }, [props.productScan]);
+
   return (
     <ViroARSceneNavigator
       autofocus={true}
