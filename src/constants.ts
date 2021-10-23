@@ -1,3 +1,3 @@
-const API_URL = 'https://investigatar-server.herokuapp.com';
+const API_URL = 'https://investigatar-serv.herokuapp.com';
 
 export {API_URL};

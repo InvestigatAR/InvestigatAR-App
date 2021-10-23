@@ -5,6 +5,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import ARScene from '../ARScene';
 import {NavigationContainer} from '@react-navigation/native';
 import ProfileScreen from '../ProfileScreen';
+import ScannerScreen from "../ScannerScreen";
 const Tab = createBottomTabNavigator();
 
 const TabScreen = () => {
@@ -22,6 +23,16 @@ const TabScreen = () => {
           }}
           name="Home"
           component={HomeScreen}
+        />
+        <Tab.Screen
+          options={{
+            tabBarLabel: 'Scanner',
+            tabBarIcon: ({color, size}) => (
+              <MaterialCommunityIcons name="camera" color={color} size={size} />
+            ),
+          }}
+          name="Scan"
+          component={ScannerScreen}
         />
         <Tab.Screen
           options={{
