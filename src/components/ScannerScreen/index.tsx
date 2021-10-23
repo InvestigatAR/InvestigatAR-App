@@ -7,6 +7,14 @@ import {RNCamera} from 'react-native-camera';
 const ScannerScreen = () => {
   const [camera, setCamera] = useState<any>(undefined);
 
+  const barcodeRecognized = ({ barcodes }) => {
+    barcodes.forEach(barcode => {
+      console.log('barcode');
+      console.log(barcode);
+      console.warn(barcode.data);
+    });
+  };
+
   return (
     <View style={{display: 'flex', width: '100%', height: '100%'}}>
       <RNCamera
@@ -16,6 +24,7 @@ const ScannerScreen = () => {
         style={{
           flex: 1,
         }}
+        onGoogleVisionBarcodesDetected={barcodeRecognized}
       />
     </View>
   );

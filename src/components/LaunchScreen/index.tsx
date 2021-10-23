@@ -45,7 +45,7 @@ const LaunchScreen = (props: any) => {
         }
       }
     });
-  }, [props.userSession, props.navigation]);
+  }, []);
 
   return <View />;
 };
