@@ -39,33 +39,15 @@ const ProfileScreen = (props: any) => {
           });
         }}
       />
-      <View style={styles.header}>
-        <Button
-          title={'Signout'}
-          onPress={() => {
-            AsyncStorage.clear().then(() => {
-              props.setUserSession(undefined);
-              props.navigation.getParent().navigate('LoginScreen');
-              // props.navigation.getParent().reset({
-              //   index: 0,
-              //   routes: [{name: 'LoginScreen'}],
-              // });
-              // props.navigation.reset({
-              //   index: 0,
-              //   routes: [{name: 'LoginScreen'}],
-              // });
-            });
-          }}
-        />
-        {/* for profile picture */}
-        <Image
-          style={styles.profile}
-          source={require('./profile_picture.png')}
-        />
-        <Text style={{color: 'black'}}>{'asdf'}</Text>
-        <Text>{email}</Text>
-        <Text>{username}</Text>
-      </View>
+
+      <Image
+        style={styles.profile}
+        source={require('./profile_picture.png')}
+      />
+
+      <Text style={{color: 'black'}}>{'asdf'}</Text>
+      <Text>{email}</Text>
+      <Text>{username}</Text>
     </SafeAreaView>
   );
 };
