@@ -1,21 +1,30 @@
-import {ImageBackground, StyleSheet, Text, View} from 'react-native';
+import {ImageBackground, StyleSheet, Text, View, FlatList, ScrollView} from 'react-native';
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { mapDispatchToProps, mapStateToProps } from "../LaunchScreen";
 import { createSerializableStateInvariantMiddleware } from '@reduxjs/toolkit';
-import { whileStatement } from '@babel/types';
+import { ALIAS_KEYS, whileStatement } from '@babel/types';
+import { Item } from 'react-native-paper/lib/typescript/components/List/List';
+import { iteratorSymbol } from 'immer/dist/internal';
+import PersonalInfo from '../Shared/personal_info';
+import History from '../Shared/History';
 
+
+const items = [ {id: 1, name: 'chair'}, {id: 2, name: 'table'}, {id: 3, name: 'banana'}, {id: 1, name: 'apple'}, {id: 1, name: 'tomato'},{id: 1, name: 'chocolate'},
+{id: 1, name: 'chair'}, {id: 1, name: 'chair'}, ];
 const HomeScreen = (props: any) => {
   useEffect(() => {
     console.log("Hello", props.userSession.current.user.username);
   }, []);
+  const name = props.userSession ? props.userSession.current.user.name : "no name";
+
   const renderHeader = (props: any) => {
     return (
       <View
         style={{
           width: "100%",
           height: 200,
-          position: 'absolute'
+          // position: 'absolute'
         }}
       >
         <ImageBackground
@@ -35,11 +44,13 @@ const HomeScreen = (props: any) => {
             marginTop: 70
           }}
           >
-            <Text style={{fontSize: 50, color: '#FFF'}}>Welcome Home</Text>
+            <Text style={{fontSize: 50, color: '#000'}}>Welcome Home</Text>
             <Text style={{
               marginTop: 10,
-              fontSize: 20
-            }}> {props.userSession.current.user.name} </Text>
+              fontSize: 35,
+              fontStyle: 'italic'
+              // fontWeight: 'bold'
+            }}> {name} </Text>
           </View>
         </ImageBackground>
         
@@ -51,6 +62,30 @@ const HomeScreen = (props: any) => {
     
     <View style={{flex: 1, alignItems: 'center'}}>
       {renderHeader(props)}
+      <Text style={
+        {marginVertical:10,
+          fontSize: 20
+        }
+      }
+      >History</Text>
+
+      <View style={{
+        marginVertical: 10
+      }}>
+        <FlatList 
+        data={items}
+        renderItem={({item}) => (
+          <View>
+            <History title={item.name} onPress={() => {}}></History>
+          </View>
+
+        )}
+        />
+
+
+      </View>
+      
+
       
       
       {/* <Text>{props.userSession.current ? JSON.stringify(props.userSession.current) : 'no user session'}</Text> */}

@@ -59,8 +59,8 @@ const SignupScreen = (props: any) => {
                         console.warn('login error', err);
                         });
                     } else {
-                        props.navigation.navigate('TabScreen');
-                        // Alert.alert("Missing Fields", "Please fill out all fields before signing up");
+                        // props.navigation.navigate('TabScreen');
+                        Alert.alert("Missing Fields", "Please fill out all fields before signing up");
                     }
                 }}
             />
