@@ -1,4 +1,12 @@
-import {Button, Text, View, Alert, StyleSheet, Dimensions} from 'react-native';
+import {
+  Button,
+  Text,
+  View,
+  Alert,
+  StyleSheet,
+  Dimensions,
+  AsyncStorage,
+} from 'react-native';
 import React, {useState} from 'react';
 import {connect} from 'react-redux';
 import {mapDispatchToProps, mapStateToProps} from '../LaunchScreen';
@@ -44,12 +52,18 @@ const LoginScreen = (props: any) => {
           signin(props, username as string, password as string)
             .then((res: any) => {
               // prevent from going back
-              props.navigation.reset({
-                index: 0,
-                routes: [{name: 'TabScreen'}],
-              });
-              props.setUserSession(res.data);
-              props.navigation.navigate('TabScreen');
+              // props.navigation.reset({
+              //   index: 0,
+              //   routes: [{name: 'TabScreen'}],
+              // });
+              const userCredentials = res.data;
+              props.setUserSession(userCredentials);
+              // props.navigation.navigate('TabScreen');
+              // save user credentials to storage
+              AsyncStorage.setItem(
+                'userSession',
+                JSON.stringify(userCredentials),
+              );
             })
             .catch((err: any) => {
               console.warn('login error', err);
