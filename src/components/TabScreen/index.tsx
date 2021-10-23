@@ -37,7 +37,11 @@ const TabScreen = () => {
           options={{
             tabBarLabel: 'Profile',
             tabBarIcon: ({color, size}) => (
-              <MaterialCommunityIcons name="camera" color={color} size={size} />
+              <MaterialCommunityIcons
+                name="account"
+                color={color}
+                size={size}
+              />
             ),
           }}
           name="Profile"
