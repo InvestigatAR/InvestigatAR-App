@@ -23,8 +23,8 @@ const ScannerScreen = (props: any) => {
     const onSelectImage = () => {
         if (!isLoaded) {
             tflite.loadModel({
-                    model: "models/ssd_mobilenet.tflite",
-                    labels: "models/ssd_mobilenet.txt"
+                    model: "../../../models/ssd_mobilenet.tflite",
+                    labels: "../../../models/ssd_mobilenet.txt"
                 },
                 (err, res) => {
                     if (err) console.log(err);
