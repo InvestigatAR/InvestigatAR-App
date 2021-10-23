@@ -11,11 +11,11 @@ const ProfileScreen = (props: any) => {
         onPress={() => {
           AsyncStorage.clear().then(() => {
             props.setUserSession(undefined);
-            props.navigation.getParent().navigate('LoginScreen');
-            // props.navigation.getParent().reset({
-            //   index: 0,
-            //   routes: [{name: 'LoginScreen'}],
-            // });
+            props.navigation.navigate('LoginScreen');
+            props.navigation.reset({
+              index: 0,
+              routes: [{name: 'LoginScreen'}],
+            });
             // props.navigation.reset({
             //   index: 0,
             //   routes: [{name: 'LoginScreen'}],

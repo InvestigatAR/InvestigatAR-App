@@ -9,10 +9,9 @@ import ScannerScreen from "../ScannerScreen";
 const Tab = createBottomTabNavigator();
 
 const TabScreen = () => {
-  const navProps = {independent: true, initialRouteName: 'home'};
 
   return (
-    <NavigationContainer {...navProps}>
+    // <NavigationContainer {...navProps}>
       <Tab.Navigator>
         <Tab.Screen
           options={{
@@ -59,7 +58,7 @@ const TabScreen = () => {
           component={ProfileScreen}
         />
       </Tab.Navigator>
-    </NavigationContainer>
+    // </NavigationContainer>
   );
 };
 
