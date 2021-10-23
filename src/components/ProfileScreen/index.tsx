@@ -21,9 +21,9 @@ const ProfileScreen = (props: any) => {
 
   const profileData = props.userSession.current;
 
-  const name: string = profileData.user.name;
-  const email: string = profileData.user.email;
-  const username: string = profileData.user.username;
+  const name: string = profileData ? profileData.user.name : 'none';
+  const email: string = profileData ? profileData.user.email : 'none';
+  const username: string = profileData ? profileData.user.username : 'none';
 
   console.log(name);
 
