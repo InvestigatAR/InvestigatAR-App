@@ -1,26 +1,21 @@
 import {Button, View} from 'react-native';
 import React, {useEffect} from 'react';
 import {setUserSession} from '../../redux/actions/UserSessionActions';
-import {bindActionCreators} from 'redux';
+import {AnyAction, bindActionCreators, Dispatch} from 'redux';
 import {connect} from 'react-redux';
 
 const LaunchScreen = (props: any) => {
   useEffect(() => {
-    console.log(
-      'TODO: read from async storage to get current user and preferences',
-    );
-
-    console.log('current user session', props.userSession.current);
+    // go to login screen if user is not logged in
+    if (props.userSession.current) {
+      props.navigation.navigate('TabScreen');
+    } else {
+      props.navigation.navigate('LoginScreen');
+    }
   }, [props.userSession]);
 
   return (
-    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-      <Button
-        title="Get Started"
-        // change TabScreen to LoginScreen
-        onPress={() => props.navigation.navigate('LoginScreen')}
-      />
-    </View>
+    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}} />
   );
 };
 
@@ -29,13 +24,12 @@ export const mapStateToProps = (state: any) => {
   return {userSession};
 };
 
-export const mapDispatchToProps = (dispatch: any) => {
-  return bindActionCreators(
+export const mapDispatchToProps = (dispatch: Dispatch<AnyAction>) =>
+  bindActionCreators(
     {
       setUserSession,
     },
-    () => dispatch,
+    dispatch,
   );
-};
 
 export default connect(mapStateToProps, mapDispatchToProps)(LaunchScreen);

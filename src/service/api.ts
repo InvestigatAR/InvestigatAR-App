@@ -17,8 +17,6 @@ export const signin = (props: any, username: string, password: string) => {
     data: data,
   };
 
-  console.log(config);
-
   return axios(config);
 };
 
