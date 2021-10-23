@@ -17,7 +17,7 @@ const HomeScreen = (props: any) => {
         }}
       >
         <ImageBackground
-        source = {require('./TopBacksplash.png')}
+        source = {require('../Shared/TopBacksplash.png')}
         resizeMode = "cover"
         style = {{
           flex: 1,
