@@ -2,16 +2,17 @@ import React, {useEffect, useState} from 'react';
 import {connect} from 'react-redux';
 import {mapDispatchToProps, mapStateToProps} from '../LaunchScreen';
 import {
-  Button, KeyboardAvoidingView,
+  Button,
+  KeyboardAvoidingView,
   SafeAreaView,
   ScrollView,
   Text,
   TextInput,
-  View
-} from "react-native";
+  View,
+} from 'react-native';
 import {getProduct} from '../../service/api';
-import Input from "../Shared/input";
-import SignupButton from "../Shared/signupbutton";
+import Input from '../Shared/input';
+import SignupButton from '../Shared/signupbutton';
 
 const ReviewScreen = (props: any) => {
   const [reviews, setReviews] = useState<Array<any>>([]);
@@ -67,8 +68,17 @@ const ReviewScreen = (props: any) => {
 
   return (
     <SafeAreaView>
-      <KeyboardAvoidingView style={{display: 'flex', height: '100%', width: '100%'}} behavior="padding" enabled>
-        <View style={{width: '100%', display: 'flex', alignContent: 'flex-start', flexDirection: 'row'}}>
+      <KeyboardAvoidingView
+        style={{display: 'flex', height: '100%', width: '100%'}}
+        behavior="padding"
+        enabled>
+        <View
+          style={{
+            width: '100%',
+            display: 'flex',
+            alignContent: 'flex-start',
+            flexDirection: 'row',
+          }}>
           <Button
             onPress={() => {
               props.navigation.navigate('TabScreen');
@@ -92,15 +102,9 @@ const ReviewScreen = (props: any) => {
             onChangeText={text => setReviewMessage(text)}
           />
 
-          <SignupButton
-            title="Submit"
-            onPress={() => {
-
-            }}>
-          </SignupButton>
+          <SignupButton title="Submit" onPress={() => {}} />
         </View>
       </KeyboardAvoidingView>
-
     </SafeAreaView>
   );
 };
