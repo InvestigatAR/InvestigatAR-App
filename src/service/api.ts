@@ -49,7 +49,7 @@ export const signup = (
 
 export const refresh = (props: any) => {
   const data = JSON.stringify({
-    refreshToken: props.userSession.refreshToken.token,
+    refreshToken: props.userSession.current.refreshToken.token,
   });
 
   const config: any = {
@@ -91,7 +91,7 @@ export const getProduct = (
     method: 'get',
     url: `${API_URL}/api/v1/product/get`,
     headers: {
-      Authorization: `Bearer ${props.userSession.accessToken.token}`,
+      Authorization: `Bearer ${props.userSession.current.accessToken.token}`,
       'Content-Type': 'application/json',
     },
     data: data,
@@ -116,7 +116,7 @@ export const createReview = (
     method: 'post',
     url: `${API_URL}/api/v1/review/set`,
     headers: {
-      Authorization: `Bearer ${props.userSession.accessToken.token}`,
+      Authorization: `Bearer ${props.userSession.current.accessToken.token}`,
       'Content-Type': 'application/json',
     },
     data: data,
