@@ -16,22 +16,23 @@ const ScannerScreen = (props: any) => {
     const [source, setSource] = useState<any>();
     const [imageHeight, setImageHeight] = useState<any>();
     const [imageWidth, setImageWidth] = useState<any>();
-    const [tflite, setTfLite] = useState<any>();
+    const [isLoaded, setIsLoaded] = useState<boolean>(false);
 
-    useEffect(() => {
-        setTfLite(new Tflite());
-
-        tflite.loadModel({
-                model: "models/ssd_mobilenet.tflite",
-                labels: "models/ssd_mobilenet.txt"
-            },
-            (err, res) => {
-                if (err) console.log(err);
-                else setInference(res);
-            });
-    });
+    const tflite = new Tflite();
 
     const onSelectImage = () => {
+        if (!isLoaded) {
+            tflite.loadModel({
+                    model: "models/ssd_mobilenet.tflite",
+                    labels: "models/ssd_mobilenet.txt"
+                },
+                (err, res) => {
+                    if (err) console.log(err);
+                    else setInference(res);
+                });
+            setIsLoaded(true);
+        }
+
         const options: any = {
             title: "Select Avatar",
             customButtons: [{ name: "fb", title: "Choose Photo from Facebook" }],
