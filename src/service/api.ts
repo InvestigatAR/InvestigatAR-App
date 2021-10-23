@@ -35,9 +35,14 @@ export const signup = (
     roles: ['user'],
   });
 
+  const url = `${API_URL}/api/v1/auth/signup`;
+
+  console.log('made sign up request to ', url);
+  console.log('data sent', data);
+
   const config: any = {
     method: 'post',
-    url: `${API_URL}/api/v1/auth/signup`,
+    url: url,
     headers: {
       'Content-Type': 'application/json',
     },
