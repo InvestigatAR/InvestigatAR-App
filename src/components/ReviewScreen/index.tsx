@@ -104,30 +104,37 @@ const ReviewScreen = (props: any) => {
           )}
         </ScrollView>
 
-        <View style={{display: 'flex', flexDirection: 'column', width: '100%'}}>
-          <Input
-            placeholder="Write a review"
-            onChangeText={text => setReviewMessage(text)}
-          />
+        {!reviews.some(
+          review =>
+            review !== null &&
+            review.user.id === props.userSession.current.user.id,
+        ) && (
+          <View
+            style={{display: 'flex', flexDirection: 'column', width: '100%'}}>
+            <Input
+              placeholder="Write a review"
+              onChangeText={text => setReviewMessage(text)}
+            />
 
-          <SignupButton
-            title="Submit"
-            onPress={() => {
-              const rating = 0.5;
-              const description = reviewMessage;
-              const productId = product.id;
+            <SignupButton
+              title="Submit"
+              onPress={() => {
+                const rating = 0.5;
+                const description = reviewMessage;
+                const productId = product.id;
 
-              createReview(props, rating, description, productId)
-                .then(res => {
-                  console.log('review sent', res);
-                  getProductFromServer();
-                })
-                .catch((err: any) => {
-                  console.warn('error', err);
-                });
-            }}
-          />
-        </View>
+                createReview(props, rating, description, productId)
+                  .then(res => {
+                    console.log('review sent', res);
+                    getProductFromServer();
+                  })
+                  .catch((err: any) => {
+                    console.warn('error', err);
+                  });
+              }}
+            />
+          </View>
+        )}
       </KeyboardAvoidingView>
     </SafeAreaView>
   );

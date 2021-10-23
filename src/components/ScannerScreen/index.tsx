@@ -102,7 +102,7 @@ const ScannerScreen = (props: any) => {
             "Please choose one of the following",
             [
                 {
-                    text: "View Reviews",
+                    text: "View Info",
                     onPress: () => {
                         props.setProductScan(productId);
                         props.navigation.navigate("ReviewScreen");
