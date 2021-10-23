@@ -21,39 +21,42 @@ const ProfileScreen = (props: any) => {
   console.log(name);
 
   return (
-    <SafeAreaView>
-      <Button
-        title={'Signout'}
-        onPress={() => {
-          AsyncStorage.clear().then(() => {
-            props.setUserSession(undefined);
-            props.navigation.navigate('LoginScreen');
-            props.navigation.reset({
-              index: 0,
-              routes: [{name: 'LoginScreen'}],
+    <SafeAreaView style={styles.container}>
+      <View style={styles.header}>
+        <Button
+          title={'Signout'}
+          onPress={() => {
+            AsyncStorage.clear().then(() => {
+              props.setUserSession(undefined);
+              props.navigation.navigate('LoginScreen');
+              props.navigation.reset({
+                index: 0,
+                routes: [{name: 'LoginScreen'}],
+              });
+              // props.navigation.reset({
+              //   index: 0,
+              //   routes: [{name: 'LoginScreen'}],
+              // });
             });
-            // props.navigation.reset({
-            //   index: 0,
-            //   routes: [{name: 'LoginScreen'}],
-            // });
-          });
-        }}
-      />
+          }}
+        />
 
-      <Image
-        style={styles.profile}
-        source={require('./profile_picture.png')}
-      />
+        <Image
+          style={styles.profile}
+          source={require('./profile_picture.png')}
+        />
 
-      <Text style={{color: 'black'}}>{'asdf'}</Text>
-      <Text>{email}</Text>
-      <Text>{username}</Text>
+        <Text style={styles.info}>{name}</Text>
+        <Text>{email}</Text>
+        <Text>{username}</Text>
+      </View>
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
+    
     flex: 10,
   },
   profile: {
@@ -68,6 +71,9 @@ const styles = StyleSheet.create({
     flex: 1,
     height: 400,
   },
+  info: {
+    fontSize: 20,
+  }
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProfileScreen);
