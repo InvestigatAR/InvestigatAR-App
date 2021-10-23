@@ -64,10 +64,7 @@ export const refresh = (props: any) => {
   return axios(config);
 };
 
-export const getProduct = (
-  props: any,
-  queryParams: string,
-) => {
+export const getProduct = (props: any, queryParams: string) => {
   const url = `${API_URL}/api/v1/product/get` + queryParams;
 
   console.log('making get product request to ', url);

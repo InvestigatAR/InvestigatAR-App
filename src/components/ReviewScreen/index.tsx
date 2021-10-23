@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {connect} from 'react-redux';
 import {mapDispatchToProps, mapStateToProps} from '../LaunchScreen';
-import { Button, SafeAreaView, Text, View } from "react-native";
+import {Button, SafeAreaView, Text, View} from 'react-native';
 import {getProduct} from '../../service/api';
 
 const ReviewScreen = (props: any) => {
@@ -30,12 +30,27 @@ const ReviewScreen = (props: any) => {
       });
   };
 
-  const reviewList = reviews.map(review => (
-    <View style={{margin: 10, backgroundColor: 'grey'}}>
-      <Text>{review.sustainabilityScore}</Text>
-      <Text>{review.ncrdata}</Text>
-    </View>
-  ));
+  const getReviewList = (props: any) => {
+    console.log('reviews', reviews);
+    console.log('reviews', reviews);
+    console.log('reviews', reviews);
+
+    const reviewList = reviews.map(review => {
+      console.log('review', review);
+      console.log('review', review);
+      console.log('review', review);
+
+      return (
+        <View key={review.id} style={{margin: 10, padding: 10, backgroundColor: 'grey'}}>
+          <Text>User's Name: {review.user.name}</Text>
+          <Text>Rating Given: {review.rating}</Text>
+          <Text>Review Message: {review.description}</Text>
+        </View>
+      );
+    });
+
+    return reviewList;
+  };
 
   return (
     <SafeAreaView>
@@ -51,7 +66,7 @@ const ReviewScreen = (props: any) => {
       </View>
       <Text>Product Name: {product && product.name}</Text>
       <Text>Product Description: {product && product.ncrdata}</Text>
-      {reviews.length == 0 ? <Text>no reviews</Text> : reviewList}
+      {reviews.length == 0 ? <Text>no reviews</Text> : getReviewList(props)}
     </SafeAreaView>
   );
 };

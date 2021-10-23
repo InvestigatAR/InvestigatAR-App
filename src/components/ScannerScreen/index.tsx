@@ -20,20 +20,20 @@ const ScannerScreen = (props: any) => {
         {
           text: 'Product Info',
           onPress: () => {
+            setPopupShown(false);
             props.setProductScan(productId);
             props.navigation.navigate('ReviewScreen');
             console.log('view reviews pressed');
-            setPopupShown(false);
           },
           style: 'default',
         },
         {
           text: 'View in AR',
           onPress: () => {
+            setPopupShown(false);
             props.setProductScan(productId);
             props.navigation.navigate('ARScreen');
             console.log('view in ar pressed');
-            setPopupShown(false);
           },
           style: 'default',
         },
