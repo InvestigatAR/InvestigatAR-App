@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {StyleSheet, View} from 'react-native';
+import { Button, StyleSheet, View } from "react-native";
 import {
   ViroARScene,
   ViroText,
@@ -67,9 +67,6 @@ const Index = (props?: any) => {
 const ARScreen = (props: any) => {
   const [product, setProduct] = useState<any>(undefined);
 
-  const chairModel =
-    'https://firebasestorage.googleapis.com/v0/b/product-ar-76eb9.appspot.com/o/chair-v2.glb?alt=media&token=8ec85f68-c394-4c51-912c-1c96db29c329';
-
   useEffect(() => {
     const productId = props.productScan.current;
     console.log('product id', productId);
@@ -92,7 +89,7 @@ const ARScreen = (props: any) => {
   };
 
   return (
-    <>
+    <View style={{width: '100%', height: '100%'}}>
       {product && (
         <ViroARSceneNavigator
           viroAppProps={{modelUrl: product.modelUrl}}
@@ -103,12 +100,27 @@ const ARScreen = (props: any) => {
           style={styles.f1}
         />
       )}
-    </>
+
+      <View style={{position: 'absolute', left: 10, top: 50}}>
+        <Button
+          onPress={() => {
+            props.navigation.navigate('TabScreen');
+          }}
+          title="Back"
+          // color="#841584"
+          accessibilityLabel="Go back"
+        />
+      </View>
+    </View>
   );
 };
 
 let styles = StyleSheet.create({
-  f1: {flex: 1},
+  f1: {
+    flex: 1,
+    width: '100%',
+    height: '100%'
+  },
   helloWorldTextStyle: {
     fontFamily: 'Arial',
     fontSize: 30,

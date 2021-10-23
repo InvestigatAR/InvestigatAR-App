@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {connect} from 'react-redux';
 import {mapDispatchToProps, mapStateToProps} from '../LaunchScreen';
-import {SafeAreaView, Text, View} from 'react-native';
+import { Button, SafeAreaView, Text, View } from "react-native";
 import {getProduct} from '../../service/api';
 
 const ReviewScreen = (props: any) => {
@@ -39,6 +39,16 @@ const ReviewScreen = (props: any) => {
 
   return (
     <SafeAreaView>
+      <View>
+        <Button
+          onPress={() => {
+            props.navigation.navigate('TabScreen');
+          }}
+          title="Back"
+          // color="#841584"
+          accessibilityLabel="Go back"
+        />
+      </View>
       <Text>Product Name: {product && product.name}</Text>
       <Text>Product Description: {product && product.ncrdata}</Text>
       {reviews.length == 0 ? <Text>no reviews</Text> : reviewList}
