@@ -21,12 +21,12 @@ const App = () => {
           <Stack.Screen
             name={'Launch'}
             component={LaunchScreen}
-            options={{headerShown: false}}
+            options={{headerShown: false, headerLeft: () => null}}
           />
           <Stack.Screen
             name={'LoginScreen'}
             component={LoginScreen}
-            options={{headerShown: false}}
+            options={{headerShown: false, headerLeft: () => null}}
           />
           <Stack.Screen
             name={'SignupScreen'}
@@ -36,7 +36,7 @@ const App = () => {
           <Stack.Screen
             name={'TabScreen'}
             component={TabScreen}
-            options={{headerShown: false}}
+            options={{headerShown: false, headerLeft: () => null}}
           />
         </Stack.Navigator>
       </NavigationContainer>

@@ -43,7 +43,11 @@ const LoginScreen = (props: any) => {
 
           signin(props, username as string, password as string)
             .then((res: any) => {
-              console.log(res.data);
+              // prevent from going back
+              props.navigation.reset({
+                index: 0,
+                routes: [{name: 'TabScreen'}],
+              });
               props.setUserSession(res.data);
               props.navigation.navigate('TabScreen');
             })

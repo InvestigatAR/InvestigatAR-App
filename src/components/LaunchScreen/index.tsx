@@ -9,8 +9,20 @@ const LaunchScreen = (props: any) => {
     // go to login screen if user is not logged in
     if (props.userSession.current) {
       props.navigation.navigate('TabScreen');
+
+      // prevent from going back
+      props.navigation.reset({
+        index: 0,
+        routes: [{name: 'TabScreen'}],
+      });
     } else {
       props.navigation.navigate('LoginScreen');
+
+      // prevent from going back
+      props.navigation.reset({
+        index: 0,
+        routes: [{name: 'LoginScreen'}],
+      });
     }
   }, [props.userSession]);
 
