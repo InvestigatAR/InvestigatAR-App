@@ -11,16 +11,14 @@ import {
   Image,
   Dimensions,
 } from 'react-native';
-import { continueStatement } from '@babel/types';
+import {continueStatement} from '@babel/types';
 import GenButton from '../Shared/genButton';
 import PersonalInfo from '../Shared/personal_info';
-import { getActiveChildNavigationOptions } from 'react-navigation';
+import {getActiveChildNavigationOptions} from 'react-navigation';
 
 const {height, width} = Dimensions.get('screen');
 const ProfileScreen = (props: any) => {
-
   const profileData = props.userSession.current;
-
 
   const name: string = profileData ? profileData.user.name : 'none';
   const email: string = profileData ? profileData.user.email : 'none';
@@ -29,40 +27,60 @@ const ProfileScreen = (props: any) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.header}>
+      <View
+        style={{
+          display: 'flex',
+          width: '100%',
+          height: '100%',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}>
+        <View style={styles.header}>
+          <Image
+            style={styles.profile}
+            source={require('./profile_picture.png')}
+          />
 
+          <Text style={styles.name}>{name}</Text>
+        </View>
+        <View style={styles.body}>
+          {/* <Text style={styles.title}>Profile Information</Text> */}
 
-        <Image
-          style={styles.profile}
-          source={require('./profile_picture.png')}
-        />
-
-        <Text style={styles.name}>{name}</Text>
-      </View>
-      <View style={styles.body}>
-        {/* <Text style={styles.title}>Profile Information</Text> */}
-
-        <PersonalInfo title={username} onPress={() => {}}></PersonalInfo>
-        <PersonalInfo title={email} onPress={() => {}}></PersonalInfo>
-
-      </View>
-      <Button
-          title={'Sign Out'}
-          onPress={() => {
-            AsyncStorage.clear().then(() => {
-              props.setUserSession(undefined);
-              props.navigation.navigate('LoginScreen');
-              props.navigation.reset({
-                index: 0,
-                routes: [{name: 'LoginScreen'}],
-              });
-              // props.navigation.reset({
-              //   index: 0,
-              //   routes: [{name: 'LoginScreen'}],
-              // });
-            });
+          <PersonalInfo title={username} onPress={() => {}} />
+          <PersonalInfo title={email} onPress={() => {}} />
+        </View>
+        <View
+          style={{
+            display: 'flex',
+            width: '100%',
+            justifyContent: 'center',
+            alignItems: 'center',
           }}
         />
+        <GenButton
+          color={'black'}
+          title="Sign Out"
+          onPress={() => props.navigation.navigate('LoginScreen')}
+        />
+      </View>
+
+      {/*<Button*/}
+      {/*  title={'Sign Out'}*/}
+      {/*  onPress={() => {*/}
+      {/*    AsyncStorage.clear().then(() => {*/}
+      {/*      props.setUserSession(undefined);*/}
+      {/*      props.navigation.navigate('LoginScreen');*/}
+      {/*      props.navigation.reset({*/}
+      {/*        index: 0,*/}
+      {/*        routes: [{name: 'LoginScreen'}],*/}
+      {/*      });*/}
+      {/*      // props.navigation.reset({*/}
+      {/*      //   index: 0,*/}
+      {/*      //   routes: [{name: 'LoginScreen'}],*/}
+      {/*      // });*/}
+      {/*    });*/}
+      {/*  }}*/}
+      {/*/>*/}
     </SafeAreaView>
   );
 };
@@ -79,25 +97,25 @@ const styles = StyleSheet.create({
     // marginHorizontal: 10
   },
   profile: {
-    width: 225,
-    height: 225,
+    width: 120,
+    height: 120,
     borderRadius: 150,
     marginVertical: 10,
   },
   header: {
     alignItems: 'center',
-    marginVertical: 5
+    marginVertical: 5,
   },
   name: {
     fontSize: 40,
     marginVertical: 5,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
   },
 
   title: {
     fontSize: 25,
     marginVertical: 5,
-    marginHorizontal: 10
+    marginHorizontal: 10,
     // underline: 'underline'
   },
   info: {
@@ -105,9 +123,9 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     width: 0.9 * width,
     alignSelf: 'center',
-    textAlign: 'center'
+    textAlign: 'center',
     // underline: 'underline'
-  }
+  },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProfileScreen);
