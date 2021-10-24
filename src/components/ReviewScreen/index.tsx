@@ -117,7 +117,7 @@ const ReviewScreen = (props: any) => {
 
         <ScrollView>
           {reviews.length === 0 ? (
-            <Text>no reviews</Text>
+            <Text style={{fontSize: 20, fontWeight: 'bold', width: '100%', textAlign: 'center'}}></Text>
           ) : (
             getReviewList(props)
           )}
