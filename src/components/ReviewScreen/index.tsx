@@ -49,10 +49,14 @@ const ReviewScreen = (props: any) => {
   };
 
   const getReviewList = (props: any) => {
+    if (reviews === undefined || reviews === null) {
+      return <View />;
+    }
+
     console.log('reviews', reviews);
 
     const reviewList = reviews.map(review => {
-      if (review === null) {
+      if (review === undefined || review === null) {
         return <View />;
       }
 
@@ -135,11 +139,13 @@ const ReviewScreen = (props: any) => {
           )}
         </ScrollView>
 
-        {!reviews.some(
-          review =>
-            review !== null &&
-            review.user.id === props.userSession.current.user.id,
-        ) &&
+        {reviews &&
+          !reviews.some(
+            review =>
+              review !== undefined &&
+              review !== null &&
+              review.user.id === props.userSession.current.user.id,
+          ) &&
           product !== undefined && (
             <View
               style={{display: 'flex', flexDirection: 'column', width: '100%'}}>

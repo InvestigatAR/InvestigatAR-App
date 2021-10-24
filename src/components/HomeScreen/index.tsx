@@ -99,7 +99,7 @@ const HomeScreen = (props: any) => {
             for (let i = 0; i < item.reviews.length; i++) {
               const review = item.reviews[i];
               const maxRating = 5;
-              if (review !== undefined) {
+              if (review !== undefined && review !== null) {
                 averageRating += review.rating * maxRating;
               }
             }
