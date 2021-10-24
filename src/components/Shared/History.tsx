@@ -2,6 +2,7 @@ import React, {FC, useState} from 'react';
 import {Dimensions, View, Text, StyleSheet} from 'react-native';
 import { TextInput, TouchableOpacity } from 'react-native-gesture-handler';
 import { AnimatedCircularProgress } from 'react-native-circular-progress';
+import { AirbnbRating } from "react-native-ratings";
 
 const {height, width} = Dimensions.get('screen')
 // interface Props {
@@ -41,30 +42,48 @@ const History : FC <any> = (props) => {
                         </AnimatedCircularProgress>
                     </View>
                     <View style={styles.element_horizontal}>
-                        <AnimatedCircularProgress
-                            size={70}
-                            width={5}
-                            fill={props.sus_score * 100}
-                            tintColor="#00e0ff"
-                            arcSweepAngle={180}
-                            rotation={270}
-                            padding={0}
-                            backgroundColor="#3d5875">
-                            {
-                                (fill) => (
-                                <Text>
-                                    {props.sus_score * 100}
-                                </Text>
-                            )
-                        }
-                        </AnimatedCircularProgress>
+                        <AirbnbRating
+                          count={5}
+                          reviews={[
+                              'Terrible',
+                              'Bad',
+                              'Good',
+                              'Wow',
+                              'Amazing',
+                              'Excellent',
+                          ]}
+                          defaultRating={props.rating}
+                          size={30}
+                          // onFinishRating={rating => {
+                          //     setRating(rating);
+                          // }}
+                          showRating={false}
+                          isDisabled
+                        />
+                        {/*<AnimatedCircularProgress*/}
+                        {/*    size={70}*/}
+                        {/*    width={5}*/}
+                        {/*    fill={props.sus_score * 100}*/}
+                        {/*    tintColor="#00e0ff"*/}
+                        {/*    arcSweepAngle={180}*/}
+                        {/*    rotation={270}*/}
+                        {/*    padding={0}*/}
+                        {/*    backgroundColor="#3d5875">*/}
+                        {/*    {*/}
+                        {/*        (fill) => (*/}
+                        {/*        <Text>*/}
+                        {/*            {props.sus_score * 100}*/}
+                        {/*        </Text>*/}
+                        {/*    )*/}
+                        {/*}*/}
+                        {/*</AnimatedCircularProgress>*/}
                     </View>
-                </View> 
-                <Text style={styles.description}> {props.description}</Text> 
+                </View>
+                <Text style={styles.description}> {props.description}</Text>
             </TouchableOpacity>
 
         // </CardFlip>
-        
+
         // <TouchableOpacity style={styles.container} onPress={props.onPress} disabled={true}>
         //     <Text style={styles.text}>{props.title} </Text>
         //     <View style={styles.horizontal}>
@@ -106,8 +125,8 @@ const History : FC <any> = (props) => {
         //             }
         //             </AnimatedCircularProgress>
         //         </View>
-        //     </View> 
-        //     <Text style={styles.description}> {props.description}</Text> 
+        //     </View>
+        //     <Text style={styles.description}> {props.description}</Text>
         // </TouchableOpacity>
     )
 }

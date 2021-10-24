@@ -18,18 +18,18 @@ import History from '../Shared/History';
 import {getProductsFromStorage} from '../../service/utils';
 
 
-const items = [ {id: 1, name: 'Chair'}, {id: 2, name: 'Table'}, {id: 3, name: 'Banana'}, {id: 4, name: 'apple'}, {id: 5, name: 'tomato'},{id: 6, name: 'chocolate'},
-{id: 7, name: 'chair'}, {id: 8, name: 'chair'}, ];
+// const items = [ {id: 1, name: 'Chair'}, {id: 2, name: 'Table'}, {id: 3, name: 'Banana'}, {id: 4, name: 'apple'}, {id: 5, name: 'tomato'},{id: 6, name: 'chocolate'},
+// {id: 7, name: 'chair'}, {id: 8, name: 'chair'}, ];
 const HomeScreen = (props: any) => {
-  // const [items, setItems] = useState<Array<any>>([]);
+  const [items, setItems] = useState<Array<any>>([]);
 
-  // useEffect(() => {
-  //   // console.log("Hello", props.userSession.current.user.username);
-  //   getProductsFromStorage().then((res: any) => {
-  //     const productsArr = JSON.parse(res);
-  //     setItems(productsArr);
-  //   });
-  // }, []);
+  useEffect(() => {
+    // console.log("Hello", props.userSession.current.user.username);
+    getProductsFromStorage().then((res: any) => {
+      const productsArr = JSON.parse(res);
+      setItems(productsArr);
+    });
+  }, []);
   const name = props.userSession.current
     ? props.userSession.current.user.name
     : 'none';
@@ -89,11 +89,25 @@ const HomeScreen = (props: any) => {
         }}>
         <FlatList
           data={items}
-          renderItem={({item}) => (
-            <View>
-              <History title={item.name} sus_score={0.7} description={"This is a beautiful chair that is constricted from olive wood."} onPress={() => {}} />
-            </View>
-          )}
+          renderItem={({item}) => {
+            console.log('item', item);
+
+            let averageRating = 0;
+
+            for(let i = 0; i < item.reviews.length; i++) {
+              const review = item.reviews[i];
+              const maxRating = 5;
+              averageRating += review.rating * maxRating;
+            }
+
+            averageRating /= item.reviews.length;
+
+            return (<View>
+              <History title={item.name} sus_score={item.sustainabilityScore} rating={averageRating}
+                       description={item.ncrdata} onPress={() => {
+              }} />
+            </View>);
+          }}
         />
       </View>
 
