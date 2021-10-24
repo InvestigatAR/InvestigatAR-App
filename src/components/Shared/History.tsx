@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
 import {Dimensions, View, Text, StyleSheet} from 'react-native';
 import { TextInput, TouchableOpacity } from 'react-native-gesture-handler';
-import * as Progress from 'react-native-progress';
+import { AnimatedCircularProgress } from 'react-native-circular-progress';
 
 const {height, width} = Dimensions.get('screen')
 // interface Props {
@@ -14,9 +14,23 @@ const {height, width} = Dimensions.get('screen')
 const History : FC <any> = (props) => {
     return (
         <TouchableOpacity style={styles.container} onPress={props.onPress} disabled={true}>
-            {/* <Text style={styles.text}>{props.title} </Text> */}
-            {/* <Progress.Bar progress={props.sus_score} width={width * 0.8} /> */}
-            {/* <Text style={styles.text}> {props.description}</Text>   */}
+            <Text style={styles.text}>{props.title} </Text>
+            {/* <ProgressBar  progress={props.sus_score}/> */}
+            <Text style={styles.text}> {props.description}</Text>  
+            <AnimatedCircularProgress
+                size={200}
+                width={3}
+                fill={props.sus_score * 100}
+                tintColor="#00e0ff"
+                backgroundColor="#3d5875">
+                {
+                    (fill) => (
+                    <Text>
+                        { props.sus_score * 100 }
+                    </Text>
+                )
+            }
+</AnimatedCircularProgress>
         </TouchableOpacity>
     )
 }

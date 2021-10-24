@@ -56,10 +56,10 @@ const SignupScreen = (props: any) => {
           if (username && name && email && password) {
             signup(
               props,
-              username as string,
-              name as string,
-              email as string,
-              password as string,
+              (username as string).trim(),
+              (name as string).trim(),
+              (email as string).trim(),
+              (password as string).trim(),
             )
               .then((res: any) => {
                 // prevent from going back

@@ -28,10 +28,10 @@ export const signup = (
   password: string,
 ) => {
   const data = JSON.stringify({
-    username: username,
-    name: name,
-    email: email,
-    password: password,
+    username: username.trim(),
+    name: name.trim(),
+    email: email.trim(),
+    password: password.trim(),
     roles: ['user'],
   });
 

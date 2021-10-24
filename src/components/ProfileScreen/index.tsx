@@ -40,7 +40,7 @@ const ProfileScreen = (props: any) => {
         <Text style={styles.name}>{name}</Text>
       </View>
       <View style={styles.body}>
-        {/* <Text style={styles.title}>Profile Information</Text> */}
+        <Text style={styles.title}>Profile Information</Text>
 
         <PersonalInfo title={username} onPress={() => {}}></PersonalInfo>
         <PersonalInfo title={email} onPress={() => {}}></PersonalInfo>

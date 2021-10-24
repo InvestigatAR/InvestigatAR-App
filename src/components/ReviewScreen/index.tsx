@@ -13,6 +13,7 @@ import {
 import {createReview, getProduct} from '../../service/api';
 import Input from '../Shared/input';
 import SignupButton from '../Shared/signupbutton';
+import { addProductToStorage } from "../../service/utils";
 
 const ReviewScreen = (props: any) => {
   const [reviews, setReviews] = useState<Array<any>>([]);
@@ -33,6 +34,8 @@ const ReviewScreen = (props: any) => {
         console.log('product data', res.data);
 
         const product: any = res.data;
+
+        addProductToStorage(product);
 
         setProduct(product);
         setReviews(product.reviews);
