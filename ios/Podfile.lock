@@ -386,10 +386,6 @@ PODS:
     - React
   - RNVectorIcons (8.1.0):
     - React-Core
-  - TensorFlowLite (1.13.1)
-  - TfliteReactNative (0.0.4):
-    - React
-    - TensorFlowLite
   - ViroKit_static_lib (1.0)
   - ViroReact (1.0):
     - React
@@ -436,8 +432,6 @@ DEPENDENCIES:
   - RNScreens (from `../node_modules/react-native-screens`)
   - RNSVG (from `../node_modules/react-native-svg`)
   - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
-  - TensorFlowLite (= 1.13.1)
-  - TfliteReactNative (from `../node_modules/tflite-react-native/ios`)
   - "ViroKit_static_lib (from `../node_modules/@viro-community/react-viro/ios/dist/ViroRenderer/static_lib`)"
   - "ViroReact (from `../node_modules/@viro-community/react-viro/ios/`)"
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
@@ -459,7 +453,6 @@ SPEC REPOS:
     - nanopb
     - PromisesObjC
     - Protobuf
-    - TensorFlowLite
 
 EXTERNAL SOURCES:
   DoubleConversion:
@@ -536,8 +529,6 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-svg"
   RNVectorIcons:
     :path: "../node_modules/react-native-vector-icons"
-  TfliteReactNative:
-    :path: "../node_modules/tflite-react-native/ios"
   ViroKit_static_lib:
     :path: "../node_modules/@viro-community/react-viro/ios/dist/ViroRenderer/static_lib"
   ViroReact:
@@ -598,12 +589,10 @@ SPEC CHECKSUMS:
   RNScreens: 6e1ea5787989f92b0671049b808aef64fa1ef98c
   RNSVG: 551acb6562324b1d52a4e0758f7ca0ec234e278f
   RNVectorIcons: 31cebfcf94e8cf8686eb5303ae0357da64d7a5a4
-  TensorFlowLite: 8b9dc4eb32eac0f8cb660c66bca7604da56dcc5a
-  TfliteReactNative: 57b925d87235478b7231e34dc96032286a67eada
   ViroKit_static_lib: 757b887d543c671838296e5ad32f75598067dcba
   ViroReact: f4980e6b04918c4340637f9cbaae22a6bb7ea440
   Yoga: aa0cb45287ebe1004c02a13f279c55a95f1572f4
 
-PODFILE CHECKSUM: 6bc30d7d9fd8eb519d7e8c2ddcfc2a061f84664c
+PODFILE CHECKSUM: 866bf34ca1fa82c116bd2a9cff24c8cd28113fc8
 
 COCOAPODS: 1.11.2
