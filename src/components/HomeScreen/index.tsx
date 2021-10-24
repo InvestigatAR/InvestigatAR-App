@@ -18,7 +18,7 @@ import History from '../Shared/History';
 import {getProductsFromStorage} from '../../service/utils';
 
 
-const items = [ {id: 1, name: 'chair'}, {id: 2, name: 'table'}, {id: 3, name: 'banana'}, {id: 4, name: 'apple'}, {id: 5, name: 'tomato'},{id: 6, name: 'chocolate'},
+const items = [ {id: 1, name: 'Chair'}, {id: 2, name: 'Table'}, {id: 3, name: 'Banana'}, {id: 4, name: 'apple'}, {id: 5, name: 'tomato'},{id: 6, name: 'chocolate'},
 {id: 7, name: 'chair'}, {id: 8, name: 'chair'}, ];
 const HomeScreen = (props: any) => {
   // const [items, setItems] = useState<Array<any>>([]);
@@ -73,7 +73,7 @@ const HomeScreen = (props: any) => {
   return (
     <View style={{flex: 1, alignItems: 'center'}}>
       {renderHeader(props)}
-      <Text
+      {/* <Text
         style={{
           marginTop: 20,
           fontSize: 25,
@@ -81,16 +81,17 @@ const HomeScreen = (props: any) => {
           textDecorationLine: 'underline',
         }}>
         History
-      </Text>
+      </Text> */}
       <View
         style={{
           marginVertical: 10,
+          flex: 1
         }}>
         <FlatList
           data={items}
           renderItem={({item}) => (
             <View>
-              <History title={item.name} onPress={() => {}} />
+              <History title={item.name} sus_score={0.7} description={"This is a beautiful chair that is constricted from olive wood."} onPress={() => {}} />
             </View>
           )}
         />

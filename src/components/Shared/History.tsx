@@ -1,7 +1,8 @@
-import React, {FC} from 'react';
+import React, {FC, useState} from 'react';
 import {Dimensions, View, Text, StyleSheet} from 'react-native';
 import { TextInput, TouchableOpacity } from 'react-native-gesture-handler';
 import { AnimatedCircularProgress } from 'react-native-circular-progress';
+import GestureFlipView from 'react-native-gesture-flip-card';
 
 const {height, width} = Dimensions.get('screen')
 // interface Props {
@@ -11,27 +12,104 @@ const {height, width} = Dimensions.get('screen')
 //     onPress: () => void
 // }
 
+
 const History : FC <any> = (props) => {
+    // const[card, setCard] = useState<any>(undefined);
+    let card:any = undefined;
+    const size  = 50;
     return (
-        <TouchableOpacity style={styles.container} onPress={props.onPress} disabled={true}>
-            <Text style={styles.text}>{props.title} </Text>
-            {/* <ProgressBar  progress={props.sus_score}/> */}
-            <Text style={styles.text}> {props.description}</Text>  
-            <AnimatedCircularProgress
-                size={200}
-                width={3}
-                fill={props.sus_score * 100}
-                tintColor="#00e0ff"
-                backgroundColor="#3d5875">
-                {
-                    (fill) => (
-                    <Text>
-                        { props.sus_score * 100 }
-                    </Text>
-                )
-            }
-</AnimatedCircularProgress>
-        </TouchableOpacity>
+
+            <TouchableOpacity style={styles.container} onPress={props.onPress} disabled={true}>
+                <Text style={styles.text}>{props.title} </Text>
+                <View style={styles.horizontal}>
+                    <View style={styles.element_horizontal}>
+                        <AnimatedCircularProgress
+                            size={70}
+                            width={5}
+                            fill={props.sus_score * 100}
+                            tintColor="#00e0ff"
+                            arcSweepAngle={180}
+                            rotation={270}
+                            padding={0}
+                            backgroundColor="#3d5875">
+                            {
+                                (fill) => (
+                                <Text>
+                                    {props.sus_score * 100}
+                                </Text>
+                            )
+                        }
+                        </AnimatedCircularProgress>
+                    </View>
+                    <View style={styles.element_horizontal}>
+                        <AnimatedCircularProgress
+                            size={70}
+                            width={5}
+                            fill={props.sus_score * 100}
+                            tintColor="#00e0ff"
+                            arcSweepAngle={180}
+                            rotation={270}
+                            padding={0}
+                            backgroundColor="#3d5875">
+                            {
+                                (fill) => (
+                                <Text>
+                                    {props.sus_score * 100}
+                                </Text>
+                            )
+                        }
+                        </AnimatedCircularProgress>
+                    </View>
+                </View> 
+                <Text style={styles.description}> {props.description}</Text> 
+            </TouchableOpacity>
+
+        // </CardFlip>
+        
+        // <TouchableOpacity style={styles.container} onPress={props.onPress} disabled={true}>
+        //     <Text style={styles.text}>{props.title} </Text>
+        //     <View style={styles.horizontal}>
+        //         <View style={styles.element_horizontal}>
+        //             <AnimatedCircularProgress
+        //                 size={70}
+        //                 width={5}
+        //                 fill={props.sus_score * 100}
+        //                 tintColor="#00e0ff"
+        //                 arcSweepAngle={180}
+        //                 rotation={270}
+        //                 padding={0}
+        //                 backgroundColor="#3d5875">
+        //                 {
+        //                     (fill) => (
+        //                     <Text>
+        //                         {props.sus_score * 100}
+        //                     </Text>
+        //                 )
+        //             }
+        //             </AnimatedCircularProgress>
+        //         </View>
+        //         <View style={styles.element_horizontal}>
+        //             <AnimatedCircularProgress
+        //                 size={70}
+        //                 width={5}
+        //                 fill={props.sus_score * 100}
+        //                 tintColor="#00e0ff"
+        //                 arcSweepAngle={180}
+        //                 rotation={270}
+        //                 padding={0}
+        //                 backgroundColor="#3d5875">
+        //                 {
+        //                     (fill) => (
+        //                     <Text>
+        //                         {props.sus_score * 100}
+        //                     </Text>
+        //                 )
+        //             }
+        //             </AnimatedCircularProgress>
+        //         </View>
+        //     </View> 
+        //     <Text style={styles.description}> {props.description}</Text> 
+        // </TouchableOpacity>
     )
 }
 export default History
@@ -45,12 +123,28 @@ const styles = StyleSheet.create({
         borderRadius: 8,
         backgroundColor: '#FB8A86',
         width: width * 0.9,
-        height: 100,
+        height: 200,
         marginVertical: 15,
     },
     text : {
-        color: '#ffffff',
+        color: '#000',
         fontSize: 20,
-        fontWeight: "500",
+        fontWeight: '500',
+        marginBottom: 20,
+        textDecorationLine: 'underline'
+    },
+    description : {
+        color: '#000',
+        fontSize: 20,
+        marginBottom: 20,
+        justifyContent: 'center'
+    },
+    horizontal: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+    },
+    element_horizontal: {
+        marginHorizontal: 20
     }
+
 })
