@@ -1,9 +1,11 @@
 ![github-issues-shield]
-![TensorFlow](https://img.shields.io/badge/TensorFlow-%23FF6F00.svg?style=for-the-badge&logo=TensorFlow&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
 ![React Native](https://img.shields.io/badge/react_native-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![Redux](https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white)
+![Google ML](https://img.shields.io/badge/GoogleML-blue?style=for-the-badge&logo=google-cloud&logoColor=white)
+![Viro AR](https://img.shields.io/badge/ViroAR-blueviolet?style=for-the-badge&")
 [![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
+[![Devpost | Devpost](https://badges.devpost-shields.com/get-badge?name=Devpost&id=investigatar?ref_content=user-portfolio&ref_feature=in_progress&type=big-logo&style=for-the-badge)](https://devpost.com/software/investigatar?ref_content=user-portfolio&ref_feature=in_progress)
 
 <!-- PROJECT LOGO -->
 <br />
