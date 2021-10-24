@@ -99,10 +99,14 @@ const HomeScreen = (props: any) => {
             for (let i = 0; i < item.reviews.length; i++) {
               const review = item.reviews[i];
               const maxRating = 5;
-              averageRating += review.rating * maxRating;
+              if (review !== undefined) {
+                averageRating += review.rating * maxRating;
+              }
             }
 
-            averageRating /= item.reviews.length;
+            if (item.reviews.length > 0) {
+              averageRating /= item.reviews.length;
+            }
 
             return (
               <View>
