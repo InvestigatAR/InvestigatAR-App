@@ -1,5 +1,4 @@
 import {
-  Button,
   Text,
   View,
   Alert,
@@ -18,9 +17,10 @@ import SignupButton from '../Shared/signupbutton';
 import GenButton from '../Shared/genButton';
 import {signin} from '../../service/api';
 
+// @ts-ignore
 import logo from './logo.png';
 
-const {height, width} = Dimensions.get('screen');
+const {width} = Dimensions.get('screen');
 
 const LoginScreen = (props: any) => {
   const [username, setUsername] = useState<string | null>(null);

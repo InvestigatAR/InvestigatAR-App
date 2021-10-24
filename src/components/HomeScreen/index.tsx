@@ -17,7 +17,6 @@ import PersonalInfo from '../Shared/personal_info';
 import History from '../Shared/History';
 import {getProductsFromStorage} from '../../service/utils';
 
-
 // const items = [ {id: 1, name: 'Chair'}, {id: 2, name: 'Table'}, {id: 3, name: 'Banana'}, {id: 4, name: 'apple'}, {id: 5, name: 'tomato'},{id: 6, name: 'chocolate'},
 // {id: 7, name: 'chair'}, {id: 8, name: 'chair'}, ];
 const HomeScreen = (props: any) => {
@@ -85,7 +84,7 @@ const HomeScreen = (props: any) => {
       <View
         style={{
           marginVertical: 10,
-          flex: 1
+          flex: 1,
         }}>
         <FlatList
           data={items}
@@ -94,7 +93,7 @@ const HomeScreen = (props: any) => {
 
             let averageRating = 0;
 
-            for(let i = 0; i < item.reviews.length; i++) {
+            for (let i = 0; i < item.reviews.length; i++) {
               const review = item.reviews[i];
               const maxRating = 5;
               averageRating += review.rating * maxRating;
@@ -102,11 +101,17 @@ const HomeScreen = (props: any) => {
 
             averageRating /= item.reviews.length;
 
-            return (<View>
-              <History title={item.name} sus_score={item.sustainabilityScore} rating={averageRating}
-                       description={item.ncrdata} onPress={() => {
-              }} />
-            </View>);
+            return (
+              <View>
+                <History
+                  title={item.name}
+                  sus_score={item.sustainabilityScore}
+                  rating={averageRating}
+                  description={item.ncrdata}
+                  onPress={() => {}}
+                />
+              </View>
+            );
           }}
         />
       </View>
