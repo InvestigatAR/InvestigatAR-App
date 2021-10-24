@@ -60,7 +60,11 @@ const ProfileScreen = (props: any) => {
         <GenButton
           color={'black'}
           title="Sign Out"
-          onPress={() => props.navigation.navigate('LoginScreen')}
+          onPress={() => {
+            AsyncStorage.clear().then((res: any) => {
+              props.navigation.navigate('LoginScreen');
+            });
+          }}
         />
       </View>
 {/* <<<<<<< HEAD
