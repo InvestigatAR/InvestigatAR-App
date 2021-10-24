@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* myviroappTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* myviroappTests.m */; };
-		123DA9DF65D262B0B5561AB9 /* libPods-myviroapp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F2DD9C57C907762C8B202C97 /* libPods-myviroapp.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		2AF7123EC9FFBF2DFF934538 /* libPods-myviroapp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A2DDBD213F38DBADD7E1DEE /* libPods-myviroapp.a */; };
+		4A667F834EF1A9211B2CF6C9 /* libPods-myviroapp-myviroappTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 46BED5F1982B24194E0C87F6 /* libPods-myviroapp-myviroappTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		C0218A8327E7EDB3368AC899 /* libPods-myviroapp-myviroappTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 79DF7FDB9855F2A875524FAB /* libPods-myviroapp-myviroappTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,14 +36,14 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = myviroapp/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = myviroapp/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = myviroapp/main.m; sourceTree = "<group>"; };
-		147837EA102A800297D15318 /* Pods-myviroapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myviroapp.release.xcconfig"; path = "Target Support Files/Pods-myviroapp/Pods-myviroapp.release.xcconfig"; sourceTree = "<group>"; };
-		79DF7FDB9855F2A875524FAB /* libPods-myviroapp-myviroappTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-myviroapp-myviroappTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		16769584714851B47C0F1F45 /* Pods-myviroapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myviroapp.debug.xcconfig"; path = "Target Support Files/Pods-myviroapp/Pods-myviroapp.debug.xcconfig"; sourceTree = "<group>"; };
+		3833DFAB31A079E9268B1BD0 /* Pods-myviroapp-myviroappTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myviroapp-myviroappTests.debug.xcconfig"; path = "Target Support Files/Pods-myviroapp-myviroappTests/Pods-myviroapp-myviroappTests.debug.xcconfig"; sourceTree = "<group>"; };
+		46BED5F1982B24194E0C87F6 /* libPods-myviroapp-myviroappTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-myviroapp-myviroappTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D2B248B8A1D35B623846A9B /* Pods-myviroapp-myviroappTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myviroapp-myviroappTests.release.xcconfig"; path = "Target Support Files/Pods-myviroapp-myviroappTests/Pods-myviroapp-myviroappTests.release.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = myviroapp/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		D38466756D880CFF3C394E38 /* Pods-myviroapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myviroapp.debug.xcconfig"; path = "Target Support Files/Pods-myviroapp/Pods-myviroapp.debug.xcconfig"; sourceTree = "<group>"; };
-		D407F61757A8FB849B5A73B3 /* Pods-myviroapp-myviroappTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myviroapp-myviroappTests.release.xcconfig"; path = "Target Support Files/Pods-myviroapp-myviroappTests/Pods-myviroapp-myviroappTests.release.xcconfig"; sourceTree = "<group>"; };
+		9A2DDBD213F38DBADD7E1DEE /* libPods-myviroapp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-myviroapp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A2C4CAA09F28214BF17BCFA7 /* Pods-myviroapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myviroapp.release.xcconfig"; path = "Target Support Files/Pods-myviroapp/Pods-myviroapp.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		F1D9BC08F28FC565BEB24B45 /* Pods-myviroapp-myviroappTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myviroapp-myviroappTests.debug.xcconfig"; path = "Target Support Files/Pods-myviroapp-myviroappTests/Pods-myviroapp-myviroappTests.debug.xcconfig"; sourceTree = "<group>"; };
-		F2DD9C57C907762C8B202C97 /* libPods-myviroapp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-myviroapp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,7 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C0218A8327E7EDB3368AC899 /* libPods-myviroapp-myviroappTests.a in Frameworks */,
+				4A667F834EF1A9211B2CF6C9 /* libPods-myviroapp-myviroappTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,7 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				123DA9DF65D262B0B5561AB9 /* libPods-myviroapp.a in Frameworks */,
+				2AF7123EC9FFBF2DFF934538 /* libPods-myviroapp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,8 +100,8 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				F2DD9C57C907762C8B202C97 /* libPods-myviroapp.a */,
-				79DF7FDB9855F2A875524FAB /* libPods-myviroapp-myviroappTests.a */,
+				9A2DDBD213F38DBADD7E1DEE /* libPods-myviroapp.a */,
+				46BED5F1982B24194E0C87F6 /* libPods-myviroapp-myviroappTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -109,10 +109,10 @@
 		44AB6575641E618444D32913 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				D38466756D880CFF3C394E38 /* Pods-myviroapp.debug.xcconfig */,
-				147837EA102A800297D15318 /* Pods-myviroapp.release.xcconfig */,
-				F1D9BC08F28FC565BEB24B45 /* Pods-myviroapp-myviroappTests.debug.xcconfig */,
-				D407F61757A8FB849B5A73B3 /* Pods-myviroapp-myviroappTests.release.xcconfig */,
+				16769584714851B47C0F1F45 /* Pods-myviroapp.debug.xcconfig */,
+				A2C4CAA09F28214BF17BCFA7 /* Pods-myviroapp.release.xcconfig */,
+				3833DFAB31A079E9268B1BD0 /* Pods-myviroapp-myviroappTests.debug.xcconfig */,
+				6D2B248B8A1D35B623846A9B /* Pods-myviroapp-myviroappTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -163,12 +163,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "myviroappTests" */;
 			buildPhases = (
-				EE72AA03C3E81D1ED2729D4F /* [CP] Check Pods Manifest.lock */,
+				F2EF183A43B1048C867507DA /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
-				C0E45DC0DDB1C9BFB7FE1AE9 /* [CP] Embed Pods Frameworks */,
-				BBFF8FE817EF8E40A93DDF8D /* [CP] Copy Pods Resources */,
+				BDB1A47F4B277ACC39833CBF /* [CP] Embed Pods Frameworks */,
+				B97CF61893DCEE494577EDD7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -184,14 +184,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "myviroapp" */;
 			buildPhases = (
-				A9F9BFF51FB9F6BFD9EEB89D /* [CP] Check Pods Manifest.lock */,
+				E012A0D451FA02E632218D1D /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				4BA81B20AFDBF7AFC3C0EDD3 /* [CP] Embed Pods Frameworks */,
-				1C8E9C7DF0610612150C6F96 /* [CP] Copy Pods Resources */,
+				665565EC3EB78B5CCF14E39C /* [CP] Embed Pods Frameworks */,
+				C079C9D77AADFF748C168C2E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -272,24 +272,7 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nexport NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
 		};
-		1C8E9C7DF0610612150C6F96 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-myviroapp/Pods-myviroapp-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-myviroapp/Pods-myviroapp-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-myviroapp/Pods-myviroapp-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		4BA81B20AFDBF7AFC3C0EDD3 /* [CP] Embed Pods Frameworks */ = {
+		665565EC3EB78B5CCF14E39C /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -306,7 +289,58 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-myviroapp/Pods-myviroapp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A9F9BFF51FB9F6BFD9EEB89D /* [CP] Check Pods Manifest.lock */ = {
+		B97CF61893DCEE494577EDD7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-myviroapp-myviroappTests/Pods-myviroapp-myviroappTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-myviroapp-myviroappTests/Pods-myviroapp-myviroappTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-myviroapp-myviroappTests/Pods-myviroapp-myviroappTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BDB1A47F4B277ACC39833CBF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-myviroapp-myviroappTests/Pods-myviroapp-myviroappTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-myviroapp-myviroappTests/Pods-myviroapp-myviroappTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-myviroapp-myviroappTests/Pods-myviroapp-myviroappTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C079C9D77AADFF748C168C2E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-myviroapp/Pods-myviroapp-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-myviroapp/Pods-myviroapp-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-myviroapp/Pods-myviroapp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E012A0D451FA02E632218D1D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -328,41 +362,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		BBFF8FE817EF8E40A93DDF8D /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-myviroapp-myviroappTests/Pods-myviroapp-myviroappTests-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-myviroapp-myviroappTests/Pods-myviroapp-myviroappTests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-myviroapp-myviroappTests/Pods-myviroapp-myviroappTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C0E45DC0DDB1C9BFB7FE1AE9 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-myviroapp-myviroappTests/Pods-myviroapp-myviroappTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-myviroapp-myviroappTests/Pods-myviroapp-myviroappTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-myviroapp-myviroappTests/Pods-myviroapp-myviroappTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		EE72AA03C3E81D1ED2729D4F /* [CP] Check Pods Manifest.lock */ = {
+		F2EF183A43B1048C867507DA /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -436,7 +436,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F1D9BC08F28FC565BEB24B45 /* Pods-myviroapp-myviroappTests.debug.xcconfig */;
+			baseConfigurationReference = 3833DFAB31A079E9268B1BD0 /* Pods-myviroapp-myviroappTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -463,7 +463,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D407F61757A8FB849B5A73B3 /* Pods-myviroapp-myviroappTests.release.xcconfig */;
+			baseConfigurationReference = 6D2B248B8A1D35B623846A9B /* Pods-myviroapp-myviroappTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -487,12 +487,12 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D38466756D880CFF3C394E38 /* Pods-myviroapp.debug.xcconfig */;
+			baseConfigurationReference = 16769584714851B47C0F1F45 /* Pods-myviroapp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = F3LP37M7J6;
+				DEVELOPMENT_TEAM = G2K7N32FD9;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = myviroapp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -504,7 +504,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.deepdev.investigatar;
+				PRODUCT_BUNDLE_IDENTIFIER = com.richard.investigatar;
 				PRODUCT_NAME = myviroapp;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -514,12 +514,12 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 147837EA102A800297D15318 /* Pods-myviroapp.release.xcconfig */;
+			baseConfigurationReference = A2C4CAA09F28214BF17BCFA7 /* Pods-myviroapp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = RPL98Z82M9;
+				DEVELOPMENT_TEAM = G2K7N32FD9;
 				INFOPLIST_FILE = myviroapp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -530,7 +530,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.deepdev.investigatar;
+				PRODUCT_BUNDLE_IDENTIFIER = com.richard.investigatar;
 				PRODUCT_NAME = myviroapp;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";

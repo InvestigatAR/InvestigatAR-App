@@ -12,15 +12,12 @@ target 'myviroapp' do
     :hermes_enabled => false
   )
 
-  pod 'TensorFlowLite', '1.13.1'
   pod 'ViroReact', :path => '../node_modules/@viro-community/react-viro/ios/'
   pod 'ViroKit_static_lib', :path => '../node_modules/@viro-community/react-viro/ios/dist/ViroRenderer/static_lib'
 
     pod 'react-native-camera', path: '../node_modules/react-native-camera', subspecs: [
       'BarcodeDetectorMLKit'
     ]
-
-  pod 'TfliteReactNative', :path => '../node_modules/tflite-react-native'
 
   target 'myviroappTests' do
     inherit! :complete

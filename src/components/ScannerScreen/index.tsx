@@ -1,96 +1,73 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { mapDispatchToProps, mapStateToProps } from "../LaunchScreen";
-import { View, Alert, ImageBackground, ImagePickerIOS, StyleSheet, Text } from "react-native";
-import { RNCamera } from "react-native-tflite-camera";
+import { View, Alert, StyleSheet, ActivityIndicator, Dimensions } from "react-native";
+import { RNCamera } from "react-native-camera";
 import GenButton from "../Shared/genButton";
-import Tflite from "tflite-react-native";
-import ImagePicker from "react-native-image-picker";
-import { Platform } from "react-native";
 
 const ScannerScreen = (props: any) => {
 
     const [popupShown, setPopupShown] = useState<any>(false);
     const [camera, setCamera] = useState<any>(undefined);
-    const [inference, setInference] = useState<any>();
-    const [source, setSource] = useState<any>();
-    const [imageHeight, setImageHeight] = useState<any>();
-    const [imageWidth, setImageWidth] = useState<any>();
-    const [isLoaded, setIsLoaded] = useState<boolean>(false);
+    const [isLoading, setIsLoading] = useState<boolean>();
+    const [identifedAs, setIdentifedAs] = useState<String>();
 
-    let tflite = new Tflite();
+    const takePicture = async () => {
+        if (camera) {
+            //Pause camera preview
+            camera.pausePreview();
+            setIsLoading(true);
 
-    const onSelectImage = () => {
-        tflite = new Tflite();
-        console.log("Logging tflite ", tflite);
+            //Set the options for the camera
+            const options = {
+                base64: true
+            };
 
-        if (!isLoaded) {
-            tflite.loadModel({
-                    model: "../../../models/ssd_mobilenet.tflite",
-                    labels: "../../../models/ssd_mobilenet.txt"
-                },
-                (err, res) => {
-                    if (err) console.log(err);
-                    else setInference(res);
-                });
-            setIsLoaded(true);
+            // Get the base64 version of the image
+            const data = await camera.takePictureAsync(options);
+            identifyImage(data.base64);
         }
+    };
 
-        const options: any = {
-            title: "Select Avatar",
-            customButtons: [{ name: "fb", title: "Choose Photo from Facebook" }],
-            storageOptions: {
-                skipBackup: true,
-                path: "images"
-            }
-        };
+    const identifyImage = (imageData) => {
+        //Initialize the Clarifai api
+        const Clarifai = require("clarifai");
+        const app = new Clarifai.App({
+            apiKey: "e70ea94336ce42f3bf78cdf8f8117217"
+        });
 
-        //Load image from image library
-        ImagePicker.launchImageLibrary(options, (response: any) => {
-            if (response.didCancel) {
-                console.log("User cancelled image picker");
-            } else if (response.errorCode) {
-                console.log("ImagePicker Error: ", response.errorCode);
-            } else {
-                const path = Platform.OS === "ios" ? response.uri : "file://" + response.path;
+        console.log("Identifying image");
 
-                const w = response.width;
-                const h = response.height;
-
-                setImageWidth(w);
-                setImageHeight(h);
-                setSource({ uri: path });
-
-                tflite.detectObjectOnImage({
-                        path,
-                        threshold: 0.2,
-                        numResultsPerClass: 1
-                    },
-                    (err, res) => {
-                        if (err) console.log(err);
-                        else setInference({ recognitions: res });
-                    });
-            }
+        // Identify the image
+        const data = { base64: imageData };
+        app.models.predict(Clarifai.APPAREL_MODEL, data)
+            .then((res: any) => {
+                displayAnswer(res.outputs[0].data.concepts[0].name);
+                console.log(res.outputs[0].data.concepts);
+                console.log('display answer: ', res.outputs[0].data.concepts[0].name);
+            }).catch((err: any) => {
+            console.log(err);
+            camera.resumePreview();
         });
     };
 
-    const renderResults = () => {
-        onSelectImage();
+    const displayAnswer = (identifiedImage) => {
+        // Dismiss the activity indicator
+        setIdentifedAs(identifiedImage);
+        console.log(identifiedImage);
 
-        return inference.map((res, id) => {
-            const left = res["rect"]["x"] * imageWidth;
-            const top = res["rect"]["y"] * imageHeight;
-            const width = res["rect"]["w"] * imageWidth;
-            const height = res["rect"]["h"] * imageHeight;
-            return (
-                <View key={id} style={[styles.box, { top, left, width, height }]}>
-                    <Text style={{ color: "white", backgroundColor: "blue" }}>
-                        {res["detectedClass"] + " " + (res["confidenceInClass"] * 100).toFixed(0) + "%"}
-                    </Text>
-                </View>
-            );
-        });
+        setIsLoading(false);
+
+        // Show an alert with the answer on
+        // Show an alert with the answer on
+        // @ts-ignore
+        Alert.alert(identifiedImage, "");
+        console.log("this is ", identifiedImage);
+
+        // Resume the preview
+        camera.resumePreview();
     };
+
 
     const showAlert = (productId) => {
         if (popupShown) {
@@ -159,54 +136,25 @@ const ScannerScreen = (props: any) => {
                     flex: 1
                 }}
                 onGoogleVisionBarcodesDetected={barcodeRecognized}
-
             />
-            <GenButton title={"Recognize object"} onPress={renderResults} />
+            <GenButton title={"Recognize object"} onPress={takePicture} />
         </View>
     );
 };
 
 const styles = StyleSheet.create({
-    container: {
+    preview: {
         flex: 1,
-        justifyContent: "center",
+        justifyContent: "flex-end",
         alignItems: "center",
-        backgroundColor: "white"
+        height: Dimensions.get("window").height,
+        width: Dimensions.get("window").width
     },
-    imageContainer: {
-        borderColor: "blue",
-        borderRadius: 5,
-        alignItems: "center"
-    },
-    text: {
-        color: "blue"
-    },
-    button: {
-        width: 200,
-        backgroundColor: "blue",
-        borderRadius: 10,
-        height: 40,
+    loadingIndicator: {
+        flex: 1,
         alignItems: "center",
-        justifyContent: "center",
-        marginBottom: 10
-    },
-    buttonText: {
-        color: "white",
-        fontSize: 15
-    },
-    box: {
-        position: "absolute",
-        borderColor: "blue",
-        borderWidth: 2
-    },
-    boxes: {
-        position: "absolute",
-        left: 0,
-        right: 0,
-        bottom: 0,
-        top: 0
+        justifyContent: "center"
     }
 });
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(ScannerScreen);
