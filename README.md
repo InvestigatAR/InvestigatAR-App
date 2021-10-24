@@ -1,9 +1,11 @@
 ![github-issues-shield]
-![TensorFlow](https://img.shields.io/badge/TensorFlow-%23FF6F00.svg?style=for-the-badge&logo=TensorFlow&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
 ![React Native](https://img.shields.io/badge/react_native-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![Redux](https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white)
+![Google ML](https://img.shields.io/badge/GoogleML-blue?style=for-the-badge&logo=google-cloud&logoColor=white)
+![Viro AR](https://img.shields.io/badge/ViroAR-blueviolet?style=for-the-badge&")
 [![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
+[![Devpost | Devpost](https://badges.devpost-shields.com/get-badge?name=Devpost&id=investigatar?ref_content=user-portfolio&ref_feature=in_progress&type=big-logo&style=for-the-badge)](https://devpost.com/software/investigatar?ref_content=user-portfolio&ref_feature=in_progress)
 
 <!-- PROJECT LOGO -->
 <br />
@@ -46,12 +48,19 @@
 ## Introduction
 
 <p align="center">
-  <strong align="center">Why InvestigatAR? (Replace image with screenshot of app)</strong>
+  <strong align="center">Why InvestigatAR?</strong>
   <br>
-  <img width="320" height="320" src="logo.png">
+  <img width="320" height="620" src="screenshot.png">
 </p>
   
-Some text about why InvestigatAR
+We’re in a new era: a boom of online shopping + mobile device advancement. What does that mean? More people want to shop online while staying home, and use their phones to do it. However, one of the biggest issues for both retailers and consumers is miscommunication. How big is this couch really? Will this chair fit under my desk? Does my backpack have enough space to hold this? 
+
+InvestigatAR has three guiding principles: 
+1. Sensibility
+2. Sustainability
+3. Scalability
+
+By scanning QR codes in our app, users are able to see a full scale mode of the assembled product at the tips of their fingers. Using an NCR API, users are able to see names, reviews, pricing, and other critical information. Don’t know what an object is? Scan it. Using an image recognition and classification model, we can show you the closest matches in other products AND more sustainable alternatives. 
 
 <!-- Requirements -->
 ## Requirements
