@@ -129,7 +129,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     backgroundColor: '#FB8A86',
     width: width * 0.9,
-    height: 200,
+    // height: 200,
     marginVertical: 15,
   },
   text: {
