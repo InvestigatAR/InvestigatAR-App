@@ -20,7 +20,7 @@
     Explanation of investigatar
     <br />
     <br />
-    <a href="https://github.com/InvestigatAR/InvestigatAR-Server/releases"><strong>Check out the latest release! »</strong></a>
+    <a href="https://www.youtube.com/watch?v=244p7J3VHKU"><strong>Check out our demo! »</strong></a>
     <br />
     <br />
   </p>
