@@ -10,8 +10,8 @@ import PersonalInfo from '../Shared/personal_info';
 import History from '../Shared/History';
 
 
-const items = [ {id: 1, name: 'chair'}, {id: 2, name: 'table'}, {id: 3, name: 'banana'}, {id: 1, name: 'apple'}, {id: 1, name: 'tomato'},{id: 1, name: 'chocolate'},
-{id: 1, name: 'chair'}, {id: 1, name: 'chair'}, ];
+const items = [ {id: 1, name: 'chair'}, {id: 2, name: 'table'}, {id: 3, name: 'banana'}, {id: 4, name: 'apple'}, {id: 5, name: 'tomato'},{id: 6, name: 'chocolate'},
+{id: 7, name: 'chair'}, {id: 8, name: 'chair'},{id: 9, name: 'oompaloompa'}, {id: 10, name: 'abfdsg'} ];
 const HomeScreen = (props: any) => {
   useEffect(() => {
     // console.log("Hello", props.userSession.current.user.username);
@@ -78,7 +78,7 @@ const HomeScreen = (props: any) => {
         data={items}
         renderItem={({item}) => (
           <View>
-            <History title={item.name} onPress={() => {}}></History>
+            <History title={item.name} description={"e"} sus_score={0.7} onPress={() => {}}></History>
           </View>
 
         )}
