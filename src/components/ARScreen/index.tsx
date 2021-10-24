@@ -45,7 +45,7 @@ const Index = (props?: any) => {
     <ViroARScene onTrackingUpdated={onInitialized}>
       <ViroText
         text={arTracking ? '' : 'loading...'}
-        scale={[0.5, 0.5, 0.5]}
+        scale={[1, 1, 1]}
         position={[0, 0, -1]}
         style={styles.helloWorldTextStyle}
       />
