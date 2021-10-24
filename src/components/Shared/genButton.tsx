@@ -6,12 +6,13 @@ const {height, width} = Dimensions.get('screen')
 interface Props {
     title: string;
     onPress: () => void
+    color?: any
 }
 
 const GenButton : FC <Props> = (props) => {
     return (
         <TouchableOpacity style={styles.container} onPress={props.onPress}>
-            <Text style={styles.text}>{props.title} </Text>
+            <Text style={[styles.text, {color: props.color}]}>{props.title} </Text>
         </TouchableOpacity>
     )
 }

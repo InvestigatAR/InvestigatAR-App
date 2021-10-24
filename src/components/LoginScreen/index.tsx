@@ -8,6 +8,7 @@ import {
   AsyncStorage,
   KeyboardAvoidingView,
   Image,
+  ImageBackground,
 } from 'react-native';
 import React, {useState} from 'react';
 import {connect} from 'react-redux';
@@ -32,74 +33,98 @@ const LoginScreen = (props: any) => {
       behavior="padding"
       enabled>
       <View style={styles.container}>
-        <Image source={logo} style={{width: 200, height: 200}} />
+        <ImageBackground
+          source={require('./bg.jpg')}
+          style={{width: '100%', height: '100%'}}
+        />
 
-        <Text
+        <View
           style={{
-            fontWeight: 'bold',
-            marginTop: 30,
-            marginBottom: 15,
-            fontSize: 40,
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            position: 'absolute',
+            width: '100%',
+            height: '100%',
+            backgroundColor: 'rgba(0,0,0,0.2)',
           }}>
-          InvestigatAR
-        </Text>
-        <Text style={{fontStyle: 'italic', marginBottom: 15, fontSize: 20}}>
-          Simulate | Innovate | Investigate
-        </Text>
+          <Image source={logo} style={{width: 200, height: 200}} />
 
-        <Input
-          placeholder="Username"
-          onChangeText={text => {
-            console.log(text);
-            setUsername(text);
-          }}
-        />
-        <Input
-          placeholder="Password"
-          secureTextEntry
-          onChangeText={text => {
-            console.log(text);
-            setPassword(text);
-          }}
-        />
-        <SignupButton
-          title="Login"
-          onPress={() => {
-            console.log('username', username);
-            console.log('password', password);
-            if (username && password) {
-              signin(props, username as string, password as string)
-                .then((res: any) => {
-                  // prevent from going back
-                  // props.navigation.reset({
-                  //   index: 0,
-                  //   routes: [{name: 'TabScreen'}],
-                  // });
-                  const userCredentials = res.data;
-                  props.setUserSession(userCredentials);
-                  props.navigation.navigate('TabScreen');
-                  // save user credentials to storage
-                  AsyncStorage.setItem(
-                    'userSession',
-                    JSON.stringify(userCredentials),
-                  );
-                })
-                .catch((err: any) => {
-                  console.warn('login error', err);
-                });
-            } else {
-              Alert.alert(
-                'Missing Fields',
-                'Please fill out all fields before loggin in',
-              );
-            }
-          }}
-        />
-        {/* <Button title="Create an Account" onPress={() => props.navigation.navigate('SignupScreen')}/> */}
-        <GenButton
-          title="Create an Account"
-          onPress={() => props.navigation.navigate('SignupScreen')}
-        />
+          <Text
+            style={{
+              fontWeight: 'bold',
+              marginTop: 30,
+              marginBottom: 15,
+              fontSize: 40,
+              color: 'white',
+            }}>
+            InvestigatAR
+          </Text>
+          <Text
+            style={{
+              fontStyle: 'italic',
+              marginBottom: 15,
+              fontSize: 20,
+              color: 'white',
+            }}>
+            Simulate | Innovate | Investigate
+          </Text>
+
+          <Input
+            placeholder="Username"
+            onChangeText={text => {
+              console.log(text);
+              setUsername(text);
+            }}
+          />
+          <Input
+            placeholder="Password"
+            secureTextEntry
+            onChangeText={text => {
+              console.log(text);
+              setPassword(text);
+            }}
+          />
+          <SignupButton
+            title="Login"
+            onPress={() => {
+              console.log('username', username);
+              console.log('password', password);
+              if (username && password) {
+                signin(props, username as string, password as string)
+                  .then((res: any) => {
+                    // prevent from going back
+                    // props.navigation.reset({
+                    //   index: 0,
+                    //   routes: [{name: 'TabScreen'}],
+                    // });
+                    const userCredentials = res.data;
+                    props.setUserSession(userCredentials);
+                    props.navigation.navigate('TabScreen');
+                    // save user credentials to storage
+                    AsyncStorage.setItem(
+                      'userSession',
+                      JSON.stringify(userCredentials),
+                    );
+                  })
+                  .catch((err: any) => {
+                    console.warn('login error', err);
+                  });
+              } else {
+                Alert.alert(
+                  'Missing Fields',
+                  'Please fill out all fields before loggin in',
+                );
+              }
+            }}
+          />
+          {/* <Button title="Create an Account" onPress={() => props.navigation.navigate('SignupScreen')}/> */}
+          <GenButton
+            color={'white'}
+            title="Create an Account"
+            onPress={() => props.navigation.navigate('SignupScreen')}
+          />
+        </View>
       </View>
     </KeyboardAvoidingView>
   );
