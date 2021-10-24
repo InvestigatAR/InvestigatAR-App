@@ -16,10 +16,13 @@ import {iteratorSymbol} from 'immer/dist/internal';
 import PersonalInfo from '../Shared/personal_info';
 import History from '../Shared/History';
 import {getProductsFromStorage} from '../../service/utils';
+import {useIsFocused} from '@react-navigation/native';
 
 // const items = [ {id: 1, name: 'Chair'}, {id: 2, name: 'Table'}, {id: 3, name: 'Banana'}, {id: 4, name: 'apple'}, {id: 5, name: 'tomato'},{id: 6, name: 'chocolate'},
 // {id: 7, name: 'chair'}, {id: 8, name: 'chair'}, ];
 const HomeScreen = (props: any) => {
+  const isFocused = useIsFocused();
+
   const [items, setItems] = useState<Array<any>>([]);
 
   useEffect(() => {
@@ -28,7 +31,7 @@ const HomeScreen = (props: any) => {
       const productsArr = JSON.parse(res);
       setItems(productsArr);
     });
-  }, []);
+  }, [props, isFocused]);
   const name = props.userSession.current
     ? props.userSession.current.user.name
     : 'none';

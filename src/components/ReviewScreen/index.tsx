@@ -38,6 +38,7 @@ const ReviewScreen = (props: any) => {
         const product: any = res.data;
 
         addProductToStorage(product);
+        props.setUserSession(props.userSession.current);
 
         setProduct(product);
         setReviews(product.reviews);
@@ -112,12 +113,23 @@ const ReviewScreen = (props: any) => {
           />
         </View>
 
-        <Text style={{fontSize: 30, margin: 10, fontWeight: 'bold'}}>{product && product.name}</Text>
-        <Text style={{fontSize: 20, margin: 10, marginTop: 10}}>{product && product.ncrdata}</Text>
+        <Text style={{fontSize: 30, margin: 10, fontWeight: 'bold'}}>
+          {product && product.name}
+        </Text>
+        <Text style={{fontSize: 20, margin: 10, marginTop: 10}}>
+          {product && product.ncrdata}
+        </Text>
 
         <ScrollView>
           {reviews.length === 0 ? (
-            <Text style={{fontSize: 20, fontWeight: 'bold', width: '100%', textAlign: 'center'}}></Text>
+            <Text
+              style={{
+                fontSize: 20,
+                fontWeight: 'bold',
+                width: '100%',
+                textAlign: 'center',
+              }}
+            />
           ) : (
             getReviewList(props)
           )}
