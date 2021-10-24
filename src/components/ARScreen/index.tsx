@@ -41,6 +41,8 @@ const Index = (props?: any) => {
     console.log('model loading failed with error: ' + event.nativeEvent.error);
   };
 
+  const height = 1;
+
   return (
     <ViroARScene onTrackingUpdated={onInitialized}>
       <ViroText
@@ -53,7 +55,7 @@ const Index = (props?: any) => {
         source={{
           uri: modelUrl,
         }}
-        position={[2, 0, 2]}
+        position={[0, -1 * height, -0.5]}
         scale={[1, 1, 1]}
         type="GLB"
         onLoadStart={_onLoadStart}
