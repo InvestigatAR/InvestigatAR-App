@@ -46,12 +46,19 @@
 ## Introduction
 
 <p align="center">
-  <strong align="center">Why InvestigatAR? (Replace image with screenshot of app)</strong>
+  <strong align="center">Why InvestigatAR?</strong>
   <br>
-  <img width="320" height="320" src="logo.png">
+  <img width="320" height="620" src="screenshot.png">
 </p>
   
-Some text about why InvestigatAR
+We’re in a new era: a boom of online shopping + mobile device advancement. What does that mean? More people want to shop online while staying home, and use their phones to do it. However, one of the biggest issues for both retailers and consumers is miscommunication. How big is this couch really? Will this chair fit under my desk? Does my backpack have enough space to hold this? 
+
+InvestigatAR has three guiding principles: 
+1. Sensibility
+2. Sustainability
+3. Scalability
+
+By scanning QR codes in our app, users are able to see a full scale mode of the assembled product at the tips of their fingers. Using an NCR API, users are able to see names, reviews, pricing, and other critical information. Don’t know what an object is? Scan it. Using an image recognition and classification model, we can show you the closest matches in other products AND more sustainable alternatives. 
 
 <!-- Requirements -->
 ## Requirements
