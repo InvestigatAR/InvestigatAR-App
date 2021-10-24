@@ -13,12 +13,14 @@ import {
 import {createReview, getProduct} from '../../service/api';
 import Input from '../Shared/input';
 import SignupButton from '../Shared/signupbutton';
-import { addProductToStorage } from "../../service/utils";
+import {addProductToStorage} from '../../service/utils';
+import {Rating, AirbnbRating} from 'react-native-ratings';
 
 const ReviewScreen = (props: any) => {
   const [reviews, setReviews] = useState<Array<any>>([]);
   const [product, setProduct] = useState<any>(undefined);
 
+  const [rating, setRating] = useState<number>(3);
   const [reviewMessage, setReviewMessage] = useState<string>('');
 
   useEffect(() => {
@@ -47,14 +49,8 @@ const ReviewScreen = (props: any) => {
 
   const getReviewList = (props: any) => {
     console.log('reviews', reviews);
-    console.log('reviews', reviews);
-    console.log('reviews', reviews);
 
     const reviewList = reviews.map(review => {
-      console.log('review', review);
-      console.log('review', review);
-      console.log('review', review);
-
       if (review === null) {
         return <View />;
       }
@@ -62,15 +58,35 @@ const ReviewScreen = (props: any) => {
       return (
         <View
           key={review.id}
-          style={{margin: 10, padding: 10, backgroundColor: 'grey'}}>
-          <Text>User's Name: {review.user.name}</Text>
-          <Text>Rating Given: {review.rating}</Text>
-          <Text>Review Message: {review.description}</Text>
+          style={{
+            margin: 10,
+            padding: 10,
+            backgroundColor: 'white',
+            borderRadius: 10,
+          }}>
+          <Text style={{fontSize: 23, fontWeight: 'bold'}}>
+            {review.user.name}
+          </Text>
+          <Text style={{fontSize: 18}}>{review.description}</Text>
+          <AirbnbRating
+            isDisabled
+            count={5}
+            reviews={['Terrible', 'Bad', 'Good', 'Wow', 'Amazing', 'Excellent']}
+            defaultRating={Math.round(review.rating * 5)}
+            size={30}
+            onFinishRating={rating => {
+              setRating(rating);
+            }}
+          />
         </View>
       );
     });
 
     return reviewList;
+  };
+
+  const ratingCompleted = rating => {
+    console.log('Rating is: ' + rating);
   };
 
   return (
@@ -91,17 +107,17 @@ const ReviewScreen = (props: any) => {
               props.navigation.navigate('TabScreen');
             }}
             title="Back"
-            // color="#841584"
+            color="black"
             accessibilityLabel="Go back"
           />
         </View>
 
-        <Text>Product Name: {product && product.name}</Text>
-        <Text>Product Description: {product && product.ncrdata}</Text>
+        <Text style={{fontSize: 30, margin: 10, fontWeight: 'bold'}}>{product && product.name}</Text>
+        <Text style={{fontSize: 20, margin: 10, marginTop: 10}}>{product && product.ncrdata}</Text>
 
         <ScrollView>
           {reviews.length === 0 ? (
-            <Text>no reviews</Text>
+            <Text style={{fontSize: 20, fontWeight: 'bold', width: '100%', textAlign: 'center'}}></Text>
           ) : (
             getReviewList(props)
           )}
@@ -111,33 +127,53 @@ const ReviewScreen = (props: any) => {
           review =>
             review !== null &&
             review.user.id === props.userSession.current.user.id,
-        ) && (
-          <View
-            style={{display: 'flex', flexDirection: 'column', width: '100%'}}>
-            <Input
-              placeholder="Write a review"
-              onChangeText={text => setReviewMessage(text)}
-            />
+        ) &&
+          product !== undefined && (
+            <View
+              style={{display: 'flex', flexDirection: 'column', width: '100%'}}>
+              <AirbnbRating
+                count={5}
+                reviews={[
+                  'Terrible',
+                  'Bad',
+                  'Good',
+                  'Wow',
+                  'Amazing',
+                  'Excellent',
+                ]}
+                defaultRating={3}
+                size={30}
+                onFinishRating={rating => {
+                  setRating(rating);
+                }}
+                showRating={false}
+              />
 
-            <SignupButton
-              title="Submit"
-              onPress={() => {
-                const rating = 0.5;
-                const description = reviewMessage;
-                const productId = product.id;
+              <Input
+                placeholder="Write a review"
+                onChangeText={text => setReviewMessage(text)}
+              />
 
-                createReview(props, rating, description, productId)
-                  .then(res => {
-                    console.log('review sent', res);
-                    getProductFromServer();
-                  })
-                  .catch((err: any) => {
-                    console.warn('error', err);
-                  });
-              }}
-            />
-          </View>
-        )}
+              <SignupButton
+                title="Submit"
+                onPress={() => {
+                  const maxRating = 5;
+                  const ratingScaled = rating / maxRating;
+                  const description = reviewMessage;
+                  const productId = product.id;
+
+                  createReview(props, ratingScaled, description, productId)
+                    .then(res => {
+                      console.log('review sent', res);
+                      getProductFromServer();
+                    })
+                    .catch((err: any) => {
+                      console.warn('error', err);
+                    });
+                }}
+              />
+            </View>
+          )}
       </KeyboardAvoidingView>
     </SafeAreaView>
   );
